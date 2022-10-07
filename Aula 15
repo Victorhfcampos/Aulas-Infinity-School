@@ -1,0 +1,80 @@
+import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QToolTip
+
+#CRIAR A CLASSE - HERANÇA QMainWindow
+class Janela(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        #TOPO DO S.O
+        self.topo = 150
+        self.esquerda = 100
+
+        #ALTURA E LARGURA DA JANELA
+        self.altura = 800
+        self.largura = 600
+        self.titulo = 'Primeira Janela'
+
+        # ----- BOTÃO ANTES DE CARREGAR JANELA
+        botaoUm = QPushButton('Botão 1', self)
+        #Onde ele vai aparecer na janela
+        botaoUm.move(50, 70)
+        #largura e altura
+        botaoUm.resize(150, 100)
+        botaoUm.setStyleSheet('QPushButton{background-color:#4682B4;font-size: 20px;font:bold}')
+
+        # ---------------
+        botaoUm = QPushButton('Botão 2', self)
+        botaoUm.move(50, 220)
+        botaoUm.resize(150, 100)
+        botaoUm.setStyleSheet('QPushButton{background-color:#708090;font-size: 20px;font:bold}')
+
+        #Chamar a função carregarJanela
+        self.carregarJanela()
+
+    #Métodos
+    def carregarJanela(self):
+        #elementos gráficos
+        self.setGeometry(self.esquerda, self.topo, self.largura, self.altura)
+
+        #titulo ja janela
+        self.setWindowTitle(self.titulo)
+
+        #exibir a janela
+        self.show()
+
+class JanelaDois(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        botaoUm = QPushButton('Botão 3', self)
+        botaoUm.move(50, 70)
+        botaoUm.resize(150, 100)
+        #estilo botão
+        botaoUm.setStyleSheet('QPushButton{background-color:#00BFFF;font-size: 20px;font:bold}')
+        botaoUm.clicked.connect(self.clickBotaoUm)
+
+        botaoDois = QPushButton('Botão 4', self)
+        botaoDois.move(50, 220)
+        botaoDois.resize(150, 100)
+        botaoDois.setStyleSheet('QPushButton{background-color:#191970;font-size: 20px;font:bold}')
+
+        self.carregarJanelaDois()
+
+    def carregarJanelaDois(self):
+        self.setGeometry(1000, 250, 400, 600)
+        self.setWindowTitle('Segunda Janela')
+        self.show()
+    def clickBotaoUm(self):
+        print('Você foi sorteado para lavar a louça')
+
+#------------------ INICIO ------------------
+#CRIAR O OBJETO
+app = QApplication(sys.argv)
+
+#OBJETO INSTANCIADO
+janelaUm = Janela()
+# sys.exit(app.exec())
+
+app2 = QApplication(sys.argv)
+janelaDois = JanelaDois()
+sys.exit(app2.exec())
