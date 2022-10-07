@@ -1,0 +1,148 @@
+Atividade 01
+Crie uma função que receba três parâmetros: dia, mês e ano de nascimento de uma pessoa.
+Em seguida, retorne e imprima na tela a mensagem com a idade da pessoa em questão.
+
+def calcula_idade(dia, mes, ano):
+    if mes == 6 and dia >= 17:
+        idade = 2022 - ano - 1
+    elif mes == 6 and dia < 17:
+        idade = 2022 - ano
+    elif mes > 6:
+        idade = 2022 - ano - 1
+    elif mes < 6:
+        idade = 2022 - ano
+    return idade
+
+dia = int(input('Dia do seu aniversário: '))
+mes = int(input('Mês do seu aniversário: '))
+ano = int(input('Ano de nascimento: '))
+
+idade = calcula_idade(dia, mes, ano)
+
+print(f'Idade: {idade} anos')
+
+Atividade 02
+Escreva um programa que solicite ao usuários o nome de 5 pessoas e adicione-os a uma lista e, por fim, imprima a lista na tela.
+lista_nomes = []
+for i in range(0, 5):
+    nome = input("Nome: ")
+    lista_nomes.append(nome)
+print(lista_nomes)
+
+Atividade 03
+Reescreva o programa da questão anterior, mas agora armazenando os nomes e idades em duas listas diferentes.
+Por fim, também apresente na tela as duas listas obtidas.
+
+lista_idades = []
+lista_nomes = []
+for i in range(0, 5):
+    nome = input("Nome: ")
+    idade = int(input("Idade: "))
+    lista_nomes.append(nome)
+    lista_idades.append(idade)
+print(lista_nomes)
+print(lista_idades)
+
+Atividade 04
+Para finalizar, utilize o programa anterior e imprima os valores armazenados nas listas da seguinte forma:
+
+Nome: Júnior – Idade: 31 anos
+
+lista_idades = []
+lista_nomes = []
+for i in range(0, 5):
+    nome = input("Nome: ")
+    idade = int(input("Idade: "))
+    lista_nomes.append(nome)
+    lista_idades.append(idade)
+
+for i in range(0, len(lista_nomes)):
+    print(f'Nome: {lista_nomes[i]} - Idade: {lista_idades[i]}')
+    
+Atividade 05
+Escreva um programa que peça o nome e a média de 10 alunos e adicione a uma lista apenas os nomes dos alunos com média maior do que sete.
+aprovados = []
+
+for i in range(0, 5):
+    nome = input('Nome do aluno: ')
+    media = float(input('Média do aluno: '))
+    if media >= 7:
+        aprovados.append(nome)
+print(aprovados)
+
+Atividade 06
+lista_num = []
+for i in range(0, 10):
+    num = int(input('Digite um número: '))
+    lista_num.append(num)
+
+for numero in lista_num:
+    if numero % 2 == 0:
+        lista_num.remove(numero)
+
+print(lista_num)
+
+Atividade 07
+Escreva um programa que peça as informações de nome, idade, cpf e endereço de uma pessoa e, em seguida,
+crie um dicionário e acrescente todas essas informações atribuindo cada valor a uma chave específica.
+
+nome = input('Nome: ')
+idade = int(input('Idade: '))
+cpf = input('CPF: ')
+endereço = input('Endereço: ')
+
+dados_pessoa = {}
+
+dados_pessoa['nome'] = nome
+dados_pessoa['idade'] = idade
+dados_pessoa['cpf'] = cpf
+dados_pessoa['endereço'] = endereço
+
+print(dados_pessoa)
+
+Atividade 08
+Crie um dicionário com o nome e a altura de 5 pessoas.
+Em seguida, percorra esse dicionário e armazene em uma lista apenas os nomes das pessoas com mais de 1.80m
+
+alturas = {}
+nomes = []
+for i in range(0, 5):
+    nome = input('Nome: ')
+    altura = float(input('Altura: '))
+    alturas[nome] = altura
+print(alturas)
+
+for chave in alturas.keys():
+    if alturas[chave] >= 1.8:
+        nomes.append(chave)
+
+print(nomes)
+
+Atividade 09
+Escreva um programa que solicite 10 números inteiros e, por fim, apresente uma lista apenas com os números pares.
+
+lista_pares = []
+for i in range(0, 10):
+    num = int(input(f'Digite o {i+1}º número: '))
+    if num % 2 == 0:
+        lista_pares.append(num)
+
+print(lista_pares)
+
+Atividade 10
+Faça um programa que solicite 5 números inteiros e armazene-os em uma lista.
+Em seguida, percorra a lista calculando o quadrado de cada elemento e armazenando os resultados em uma nova lista.
+Por fim, apresente as duas listas na tela.
+
+numeros = []
+quadrados = []
+for i in range(0, 5):
+    num = int(input('Informe um número inteiro: '))
+    numeros.append(num)
+
+for item in numeros:
+    quad = item**2
+    quadrados.append(quad)
+
+print(numeros)
+print(quadrados)
