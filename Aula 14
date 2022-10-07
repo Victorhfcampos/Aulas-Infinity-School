@@ -1,0 +1,266 @@
+from PyQt5 import uic,QtWidgets
+import mysql.connector
+
+# CRIAR A CONEXÃO COM O BANCO DE DADOS
+banco = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    passwd = 'admin',
+    database = 'aluno'
+)
+
+def cadastro():
+    linhaUm = formulario.lineEdit.text()
+    linhaDois = formulario.lineEdit_2.text()
+    print(f'Seu usuário {linhaUm} e sua senha {linhaDois}')
+
+    #CADASTRAR OS USUARIOS - NO BANCO DE DADOS
+    cursor = banco.cursor()
+    comando_SQL = "INSERT INTO usuario (nome, senha) VALUES (%s, %s)"
+    dados = (str(linhaUm), str(linhaDois))
+    cursor.execute(comando_SQL, dados)
+    banco.commit()
+
+# def Cadastro():
+#     print("Teste Botão ok")
+
+def exibirSegundaTela():
+    segundaTela.show()
+
+    #comando para exibir os usuarios na segunda tela
+    cursor = banco.cursor()
+    comando_SQL = "SELECT * FROM usuario"
+    cursor.execute(comando_SQL)
+    dados_lidos = cursor.fetchall()
+
+    #exibir dentro da tela - criar a tabela
+    segundaTela.tableWidget.setRowCount(len(dados_lidos))
+    segundaTela.tableWidget.setColumnCount(3)
+
+    #passar os dados para a tabela criada
+    for i in range(0, len(dados_lidos)):
+        for j in range(0,3):
+            segundaTela.tableWidget.setItem(i, j, QtWidgets.QTableWidgetItem(str(dados_lidos[i][j])))
+
+# #--------INICIO---------
+# #gerar a aplicação
+# app = QtWidgets.QApplication([])
+#
+# #carregar arquivo .ui
+# formulario = uic.loadUi('login.ui')
+# segundaTela = uic.loadUi('telaDois.ui')
+#
+# #ação do botão
+# formulario.pushButton.clicked.connect(Cadastro)
+# formulario.pushButton_2.clicked.connect(exibirSegundaTela)
+#
+# #exibir a tela
+# formulario.show()
+# app.exec()
+
+Tela Dois
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>50</y>
+      <width>461</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gill Sans MT Condensed</family>
+      <pointsize>48</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>TELA DOIS</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
+
+Tela Login
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>749</width>
+    <height>425</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>30</y>
+      <width>461</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gill Sans MT Condensed</family>
+      <pointsize>48</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>CADASTRO DO USUÁRIO </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>110</y>
+      <width>181</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gill Sans MT Condensed</family>
+      <pointsize>26</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>USUÁRIO:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>200</y>
+      <width>91</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gill Sans MT Condensed</family>
+      <pointsize>26</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>SENHA:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>120</y>
+      <width>491</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(217, 217, 217);
+background-color: rgb(230, 230, 230);</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>200</y>
+      <width>491</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(217, 217, 217);
+background-color: rgb(230, 230, 230);</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>300</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 251, 255);</string>
+    </property>
+    <property name="text">
+     <string>CADASTRAR</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>300</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 251, 255);</string>
+    </property>
+    <property name="text">
+     <string>EXIBIR USUÁRIOS</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>749</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
