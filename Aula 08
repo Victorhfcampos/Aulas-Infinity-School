@@ -1,0 +1,336 @@
+Atividade 01
+Crie uma classe carro que corre no máximo até 120km/h.
+O carro deve ser cadastrado com modelo, ano, velocidade, se está ligado ou não e se é automático ou não (use valores booleanos).
+O carro deve ter as seguintes funcionalidades:
+Ligar;
+Acelerar;
+Verificar a marchar seguindo a tabela: 
+1ª - até 20km/h
+2ª - 20 < vel < 30
+3ª - 30 < vel < 35
+4ª - 35 < vel < 45
+5ª - 45 < vel < 55
+
+class Carro:
+    def __init__(self, modelo, ano, automatico):
+        self.modelo = modelo
+        self.ano = ano
+        self.velocidade = 0.0
+        self.ligado = False
+        self.automatico = automatico
+
+    def ligar(self):
+        if self.ligado == True:
+            print('O carro já está ligado')
+        else:
+            print('O carro foi ligado')
+            self.ligado = True
+
+    def desligar(self):
+        if self.ligado == False:
+            print('O carro já está desligado')
+        else:
+            print('O carro foi desligado')
+            self.ligado = False
+
+    def acelerar(self):
+        if self.ligado == True:
+            velocidade = float(input('Quanto você deseja acelerar: '))
+            if self.velocidade + velocidade <= 120:
+                self.velocidade = self.velocidade + velocidade
+            else:
+                print('Você atingiu a velocidade máxima')
+                self.velocidade = 120
+        else:
+            print('Você não pode acelerar, pois o carro está desligado')
+
+    def verificaMarcha(self):
+        if self.velocidade <= 20:
+            print('1ª marcha')
+        elif self.velocidade > 20 and self.velocidade <= 30:
+            print('2ª marcha')
+        elif self.velocidade > 30 and self.velocidade <= 35:
+            print('3ª marcha')
+        elif self.velocidade > 35 and self.velocidade <= 45:
+            print('4ª marcha')
+        elif self.velocidade > 45:
+            print('5ª marcha')
+
+carro = Carro('Onix', 2022, True)
+
+carro.ligar()
+carro.acelerar()
+carro.acelerar()
+carro.acelerar()
+print(carro.velocidade, "km/h")
+carro.verificaMarcha()
+carro.desligar()
+
+Atividade 02
+Crie uma classe chamada Aluno com os atributos matrícula, nome, semestre e média.
+Os dois últimos atributos devem ser iniciados com ‘primeiro’ e ZERO, respectivamente.
+Em seguida, crie o método calcular média, que irá solicitar duas notas do semestre que o aluno está matriculado e calcular a média final,
+o método para passar de semestre e o método para apresentar informações.
+
+class Aluno:
+    def __init__(self, matricula, nome):
+        self.matricula = matricula
+        self.nome = nome
+        self.semestre = 1
+        self.media = 0.0
+
+    def calcularMedia(self):
+        n1 = float(input(f'Informe a primeira nota do {self.semestre}º semestre: '))
+        n2 = float(input(f'Informe a segunda nota do {self.semestre}º semestre: '))
+        self.media = (n1+n2)/2
+
+    def passarSemestre(self):
+        if self.media >= 7:
+            print(f'Aluno foi aprovado com média {self.media}')
+            self.semestre += 1
+        else:
+            print('Aluno foi reprovado')
+
+        self.media = 0
+
+    def apresentarInformacoes(self):
+        print(f' Aluno {self.nome}')
+        print(f' Matrícula {self.matricula}')
+        print(f' Semestre {self.semestre}º semestre')
+
+aluno = Aluno(1, 'João')
+
+aluno.calcularMedia()
+aluno.passarSemestre()
+aluno.calcularMedia()
+aluno.passarSemestre()
+print(aluno.media)
+aluno.apresentarInformacoes()
+
+Atividade 03
+Crie uma classe chamada Pessoa com os atributos nome, idade e cpf.
+Dentro do método init, não receba nenhum parâmetro, mas declare esse atributos com valores vazios
+
+Completando a classe anterior, agora crie os métodos de acesso e de alteração (get e set).
+Em seguida, inicie um objeto, atribua os valores dos atributos com os métodos setters e em seguida exiba-os na tela.
+
+Redefina os métodos criados na questão anterior, agora utilizando os decoradores.
+
+class Pessoa:
+    def __init__(self):
+        self.__nome = ''
+        self.__idade = 0
+        self.__cpf = ''
+
+    def get_nome(self):
+        return self.__nome
+
+    def set_nome(self, nome):
+        self.__nome = nome
+
+    def get_idade(self):
+        return self.__idade
+
+    def set_idade(self, idade):
+        self.__idade = idade
+
+    def get_cpf(self):
+        return self.__cpf
+
+    def set_cpf(self, cpf):
+        self.__cpf = cpf
+
+pessoa = Pessoa()
+
+nome = input('Nome: ')
+idade = input('Idade: ')
+cpf = input('CPF: ')
+
+pessoa.set_nome(nome)
+pessoa.set_idade(idade)
+pessoa.set_cpf(cpf)
+
+print(pessoa.get_nome())
+print(pessoa.get_idade())
+print(pessoa.get_cpf())
+
+Atividade 04
+Redefina os métodos criados na questão anterior, agora utilizando os decoradores.
+
+class Pessoa:
+    def __init__(self):
+        self.__nome = ''
+        self.__idade = 0
+        self.__cpf = ''
+
+    @property
+    def nome(self):
+        return self.__nome
+
+    @nome.setter
+    def nome(self, nome):
+        self.__nome = nome
+
+    @property
+    def idade(self):
+        return self.__idade
+
+    @idade.setter
+    def idade(self, idade):
+        self.__idade = idade
+
+    @property
+    def cpf(self):
+        return self.__cpf
+
+    @cpf.setter
+    def cpf(self, cpf):
+        self.__cpf = cpf
+
+pessoa = Pessoa()
+
+nome = input('Nome: ')
+idade = int(input('Idade: '))
+cpf = input('CPF: ')
+
+pessoa.nome = nome
+pessoa.idade = idade
+pessoa.cpf = cpf
+
+print(pessoa.nome)
+print(pessoa.idade)
+print(pessoa.cpf)
+
+Atividade 05
+Desenvolva um sistema onde possa ser cadastrado dados de um funcionários que terá nome, salário, matrícula e função.
+Os valores serão cadastrados pelo RH no momento de criação do cadastro.
+Porém, depois de um tempo, será possível alterar o salário do funcionário em até 20% a mais, 
+nunca sendo permitido alterar o salário para um valor menor.
+
+class Funcionario:
+    def __init__(self, nome, salario, matricula, funcao):
+        self.__nome = nome
+        self.__salario = salario
+        self.__matricula = matricula
+        self.funcao = funcao
+
+    @property
+    def nome(self):
+        return self.__nome
+
+    @property
+    def salario(self):
+        return self.__salario
+
+    @property
+    def matricula(self):
+        return self.__matricula
+
+    @salario.setter
+    def salario(self, novoSalario):
+        if novoSalario > self.__salario*1.2:
+            print('O salário não pode ser aumentado em mais de 20%.')
+        elif novoSalario < self.__salario:
+            print('O novo salário não pode ser inferior.')
+        else:
+            self.__salario = novoSalario
+
+nome = input('Nome do funcionário: ')
+salario = float(input('Salário: '))
+matricula = int(input('Matrícula: '))
+funcao = input('Função: ')
+
+funcionario = Funcionario(nome, salario, matricula, funcao)
+
+funcionario.salario = 1300
+a = input('')
+funcionario.salario = 900
+a = input('')
+funcionario.salario = 1100
+a = input('')
+print(funcionario.salario)
+
+Atividade 06
+Crie uma classe chamada Produto com os atributos nome, categoria e preço.
+Em seguida, crie um método para alterar o valor do preço,
+sendo que o desconto máximo a ser dado é de 15%, e um método para apresentar o valor final da compra.
+Lembre-se de usar o encapsulamento quando necessário.
+
+class Produto:
+    def __init__(self, nome, categoria, preco):
+        self.__nome = nome
+        self.__categoria = categoria
+        self.__preco = preco
+
+    @property
+    def nome(self):
+        return self.__nome
+
+    @property
+    def categoria(self):
+        return self.__categoria
+
+    @property
+    def preco(self):
+        return self.__preco
+
+    @preco.setter
+    def preco(self, novoPreco):
+        if novoPreco < self.__preco * 0.85:
+            print('O desconto não foi aceito!')
+        else:
+            self.__preco = novoPreco
+            print('Desconto concedido!')
+
+nome = input('Produto: ')
+categoria = input('Categoria: ')
+preco = float(input('Preço: '))
+
+produto = Produto(nome, categoria, preco)
+
+desc = float(input('Qual valor você quer pagar pelo produto? '))
+produto.preco = desc
+
+Outra forma:
+class Produto:
+    def __init__(self, nome, categoria, preco):
+        self.__nome = nome
+        self.__categoria = categoria
+        self.__preco = preco
+
+    @property
+    def nome(self):
+        return self.__nome
+
+    @property
+    def categoria(self):
+        return self.__categoria
+
+    @property
+    def preco(self):
+        return self.__preco
+
+    @preco.setter
+    def preco(self, novoPreco):
+        if novoPreco < self.__preco * 0.85:
+            print('O desconto não foi aceito!')
+        else:
+            self.__preco = novoPreco
+            print('Desconto concedido!')
+
+    def mostrarCompra(self):
+        print('----------')
+        print(f'Produto: {self.__nome}')
+        print(f'Categoria: {self.__categoria}')
+        print(f'Preço: {self.__preco}')
+        print('----------')
+
+nome = input('Produto: ')
+categoria = input('Categoria: ')
+preco = float(input('Preço: '))
+
+produto = Produto(nome, categoria, preco)
+
+desc = float(input('Qual valor você quer pagar pelo produto? '))
+produto.preco = desc
+produto.mostrarCompra()
