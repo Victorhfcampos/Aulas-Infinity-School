@@ -1,0 +1,286 @@
+Atividade 01
+Peça para o usuário digitar dois nomes e imprima o maior deles utilizando F-STRING.
+nome1 = input("Informe um nome: ")
+nome2 = input("Informe outro nome: ")
+
+#print(len(nome1))
+
+if len(nome1) > len(nome2):
+    print(f"O maior nome é {nome1}")
+elif len(nome2) > len(nome1):
+    print(f"O maior nome é {nome2}")
+else:
+    print("Os dois nomes tem o mesmo tamanho")
+
+Atividade 02
+Solicite ao usuário um número inteiro e imprima na tela:
+i) O quadrado do número caso seja par
+ii) O cubo caso o número seja ímpar
+
+numero = int(input("Entre com um numero inteiro: "))
+
+if numero%2 == 0:
+    print(numero**2)
+else:
+    print(numero**3)
+    
+Atividade 03
+Crie um programa que receba o valor de um capital investido, a taxa de juros,
+a modalidade (Simples ou Composto) e o tempo de aplicação e, ao final, mostre o montante.
+capital = float(input('Capital inicial: '))
+taxa = float(input('Taxa: '))
+tempo = int(input('Tempo de aplicação: '))
+modalidade = input('Modalidade (simples/composto): ')
+
+if modalidade == 'simples':
+    montante = capital*(1+taxa*tempo)
+elif modalidade == 'composto':
+    montante = capital*((1+taxa)**tempo)
+else:
+    print('Modalidade inválida')
+    
+Atividade 04
+Solicite ao usuário que informe notas enquanto desejar e, ao final, informe a média das notas digitadas.
+
+print(f'O montante é de {montante:.2f}')
+
+Atividade 05
+Solicite ao usuário que informe notas enquanto desejar e, ao final, informe a média das notas digitadas.
+qtd = 0
+soma = 0
+
+while True:
+    nota = float(input("Informe uma nota ou uma nota negativa para encerrar: "))
+    if nota >= 0:
+        #qtd = qtd + 1
+        qtd += 1
+        soma += nota
+    else:
+        break
+
+print(f"A média do aluno foi {(soma/qtd):.2f}")
+
+Atividade 06
+Imprima em tela a sequência de 0 até 50
+#SINTAXE FOR:
+#for num in range(start, stop, step):
+    #print('')
+
+for num in range(0,51):
+    print(num)
+
+Imprima em tela a sequência de 100 até 0
+for num in range(100,-1,-1):
+    print(num)
+
+Atividade 07
+Peça 5 números e informe a soma de todos eles e a média
+
+soma = 0
+for cont in range(0,5):
+    nota = float(input("Informe a nota: "))
+    soma += nota
+
+media = soma / 5
+print(f"A média final foi: {media}")
+
+Atividade 08
+Crie um programa que peça dez números inteiros e positivos.
+Ao finalizar, informe separadamente o valor da soma dos números pares e dos números ímpares.
+somapares = 0
+somaimpares = 0
+
+for cont in range(0,10):
+    num = int(input("Informe um número: "))
+    if num%2 == 0:
+        somapares = somapares + num
+    else:
+        somaimpares += num
+print(f"Soma pares: {somapares}")
+print(f"Soma impares: {somaimpares}")
+
+Atividade 09
+Solicite ao usuário um limite inferior e um superior, depois informe quantos números pares existem no intervalo.
+inf = int(input('Informe o limite inferior: '))
+sup = int(input('Informe o limite superior: '))
+qtdpares = 0
+
+for num in range(inf, sup):
+    if num %2 == 0:
+        qtdpares += 1
+
+print(f'A quantidade de pares no intervalo é {qtdpares}')
+
+Atividade 10
+for num in range(0,11):
+    if num%2==0:
+        print(num)
+for i in range(0,11):
+    if i%2!=0:
+        print(i)
+
+Atividade 11
+
+nome = input("Informe seu nome completo: ")
+qtdvogais = 0
+qtdcons = 0
+for letra in nome.replace(" ", " "):
+    if letra in 'aeiou':
+        qtdvogais = qtdvogais + 1
+    else:
+        qtdcons = qtdcons + 1
+print(qtdvogais)
+print(qtdcons)
+
+Atividade 12
+O Sr. Manoel Joaquim acaba de adquirir uma panificadora e pretende implantar a metodologia da tabelinha,
+que já é um sucesso na sua loja de 1,99. Você foi contratado para desenvolver o programa que monta a tabela de preços de pães,
+de 1 até 50 pães, a partir do preço do pão informado pelo usuário, conforme o exemplo abaixo:
+preco = float(input('Informe o valor do pão: '))
+
+print(f'Preço do pão: R${preco:.2f}')
+print('Panificadora Pão de Ontem - Tabela de Preços')
+for qtdP in range(1,51):
+    print(f'{qtdP} - R${(qtdP*preco):.2f}')
+
+-------------------------------------------------
+
+AULA EXTRA
+"""
+print("Área de um triângulo")
+base = float(input("Informe o valor da base do triângulo: "))
+altura = float(input("Informe o valor da aultura do triângulo: "))
+area = (base*altura)/2
+print(area)
+
+print("Área de um quadrado")
+lado = float(input("Informe a área do lado do quadrado: "))
+area2 = lado**2
+print("Area do quadrado :", area2)
+
+print("Cálculo do salário base")
+salario = float(input("Informe o valor da hora trabalhada: "))
+horas = float(input("Informe a quantidade de horas trabalhadas: "))
+salario_base = salario * horas
+comissao = float(input("Informe o % de comissão: "))
+comissao = comissao/100
+comissao_final = float(salario_base*comissao)
+salario_final= float(salario_base+comissao_final)
+print(salario_final)
+
+print("Preço final do produto: ")
+produto = float(input("Informe o preço do produto: "))
+desconto = float(produto*0.1)
+preco_final = float(produto) - float(desconto)
+print("O preço final do seu produto é:", (preco_final))"""
+
+"""
+print("Verificação se um número é positivo: ")
+number= float(input("Digite um número: "))
+if number > 0:
+    print("O número é positivo")
+else:
+    print("O número é negativo")"""
+"""
+taxa1 = float(input("Qual é a taxa de ocupação do hospital: "))
+taxa2 = taxa1/100
+print(taxa2)
+
+respiradores = float(input("Quantos respiradores há disponíveis? "))
+respiradores2 = int(respiradores + 5)
+
+if taxa2 >0.6 and respiradores < 50:
+    print(f'Você terá que ter:{respiradores2} respiradores')
+else:
+    print("Você tem respiradores suficientes")"""
+
+"""
+print("Verifique quem ganhou")
+
+gols_timea = int(input("informe a quantidade de gols do time A: "))
+gols_timeb = int(input("informe a quantidade de gols do time B: "))
+
+if gols_timea > gols_timeb:
+    print("Time A venceu")
+elif gols_timea == gols_timeb:
+    print("O jogo empatou")
+else:
+    print("Time B venceu")"""
+
+"""
+nota1 = float(input("Informe a sua primeira nota: "))
+nota2 = float(input("Informe a sua segunda nota: "))
+nota3 = float(input("Informe a sua terceira nota: "))
+media = (nota1+nota2+nota3)/3
+
+if media >=9:
+    print("Você foi aprovado com honras")
+elif media >=7:
+    print("Você foi aprovado!")
+elif media <7<=5:
+    print("Você está de recuperação!")
+else:
+    print("Você reprovou!")"""
+
+"""print("Verificação se um número é par ou ímpar")
+
+numero= int(input("Digite um número: "))
+if(numero%2==0):
+    print("Seu número é par")
+else:
+    print("Seu número é impar")"""
+"""
+print("Verificação se um triângulo é isoceles, equilatero ou escaleno: ")
+med1 = float(input("Informe a medida do L1: "))
+med2= float(input("Informe a medida do L2: "))
+med3 = float(input("Informe a medida do L3: "))
+
+if(med1==med2==med3):
+    print("Seu triângulo é equilatero")
+elif(med1!=med2==med3):
+    print("Seu triângulo é escaleno")
+else:print("Seu triângulo é isóceles")"""
+"""
+print("Verifique se uma letra é vogal ou consoante: ")
+letra = str(input("Digite uma letra: "))
+if(letra == "a"):
+    print("Sua letra é uma vogal")
+elif(letra == "e"):
+    print("Sua letra é uma vogal")
+elif(letra == "i"):
+    print("Sua letra é uma vogal")
+elif(letra == "o"):
+    print("Sua letra é uma vogal")
+elif(letra == "u"):
+    print("Sua letra é uma vogal")
+else:(print("Sua letra é uma consoante"))
+#sempre usar aspas ao se utilizar uma variável str (que é a variável de texto)"""
+
+#Estrutura de repetição
+
+"""num = 5
+while num > 0:
+    print(f'O valor de num é: {num}')
+    num = num -1"""
+
+"""import random
+
+sorteado = random.randrange(1,10)
+numero = 0
+while numero != sorteado:
+    numero=int(input("Digite o valor: "))"""
+
+#while num!=sorteado:
+#    num=int(input("Escolha um número: "))
+#   if(num>sorteado):
+#        print("Número maior")
+#   elif(num<sorteado):
+#       print("Número menor")
+#   else:
+# print("Você acertou")
+
+print("Exiba os números de 1 até 20")
+numero = 1
+while numero < 21:
+    print(f'O valor é {numero} ')
+    numero = numero +1
