@@ -25,7 +25,6 @@ b
 # area = calcularArea(5)
 # print(f'Área do quadrado: {area}')
 
-
 '''
 lambda <parâmetros>: <instrução>
 
@@ -34,7 +33,6 @@ lambda <parâmetros>: <instrução>
 # area = lambda l: l ** 2
 # 
 # print(f'Área do quadrado: {area(5)}')
-
 
 imc = lambda p, a: p / a ** 2 
 
@@ -188,7 +186,6 @@ dicio = {
 
 dicio
 
-
 type(df)
 type(df['nome'])
 
@@ -221,3 +218,40 @@ nba.sort_values(by='Player')
 #<serie>.value_counts()
 
 nba['collage'].value_counts().head(60)
+
+----------------------
+
+Pandas
+import pandas as pd
+
+alturas = [1.89, 1.55, 1.64, 1.77, 2.01]
+
+type(alturas)
+
+#CTRL + ENTER)
+
+#ESC + B (BELLOW)
+
+serie = pd.Series(alturas)
+
+serie
+type(serie)
+#atributos
+#shape: retornar uma tupla com o número de elementos da serie
+serie.shape
+
+#ndim: retornar o número de dimensões da minha estrutura
+serie.ndim
+
+#size: retornar a quantidade de elementos da série
+serie.size
+
+#métodos
+#mean(): retornar a média dos valores (precisa ser de tipo numérico int/float)
+round(serie.mean(), 2)
+
+#min(): retornar o menor valor da série
+serie.min()
+
+#max(): retornar o maior valor da série
+serie.max()
