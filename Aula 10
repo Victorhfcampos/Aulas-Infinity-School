@@ -1,0 +1,63 @@
+class Usuario:
+    def __init__(self, nome, matricula):
+        self.nome = nome
+        self.matricula = matricula
+        #saber qual é a classe
+        self.nomeclasse = self.__class__.__name__
+
+    def presenca(self):
+        print(f'{self.nomeclasse} está presente...')
+
+class Professor(Usuario):
+    def lenDisciplina(self):
+        print(f'{self.nomeclasse} leciona disciplina')
+
+class Aluno(Usuario):
+    def estuda(self):
+        print(f'{self.nomeclasse} estuda disciplina')
+
+class Visitante(Usuario):
+    def visita(self):
+        print(f'{self.nomeclasse} está visitando a escola')
+
+class Funcionarios:
+    def __init__(self, nome, cpf, salario):
+        self.nome = nome
+        self.cpf = cpf
+        self.salario = salario
+
+class Gerente(Funcionarios):
+    def __init__(self, nome, cpf, salario, senha, qt_gerenciados):
+        super().__init__(nome, cpf, salario)
+        self.senha = senha
+        self.qt_gerenciados = qt_gerenciados
+
+Atividade 02
+class Funcionario:
+    def __init__(self, matricula, nome, salario):
+        self.matricula = matricula
+        self.nome = nome
+        self.salario = salario
+
+class Gerente(Funcionario):
+    def __init__(self, matricula, nome, salario, setor, comissao):
+        super().__init__(matricula, nome, salario)
+        self.setor = setor
+        self.comissao = comissao
+
+    def contratar(self, qtd_funcionarios):
+        if qtd_funcionarios < 10:
+            print('Vamos contratar mais funcionários')
+        else:
+            print('Nosso setor está completo')
+    
+    def demitir(self, nota_avaliacao):
+        if nota_avaliacao < 5:
+            print('Esse funcionário está desligado')
+        else:
+            print('Você não faz mais que sua obrigação!')
+    
+class Estagiario(Funcionario):
+    def __init__(self, matricula, nome, salario, horas):
+        super().__init__(matricula, nome, salario)
+        self.horas = horas
