@@ -1,0 +1,121 @@
+Banco de Dados
+Chave Primária:
+- Única
+- Inteiro
+- Auto Incremente
+- Não Nula
+
+Chave Estrangeira:
+- Toda chave estrangeira é uma chave primária de outra tabela	
+
+C - Create -> insert
+R - Read -> select
+U - Update -> atualizar
+D - Delete -> deletar
+
+use produtos;
+INSERT INTO produtoinformatica (nome, preco) VALUES ("Teclado", 100);
+SELECT * FROM produtoinformatica
+
+import mysql.connector
+
+conexaoSQL = mysql.connector.connect(
+    host = 'localhost',
+    user = 'root',
+    password = 'admin',
+    database = 'produto'
+)
+cursor = conexaoSQL.cursor()
+
+#C - CREATE - INSERT
+# nome_produto  = "SDD 1 TB"
+# valor_produto = 450
+# comandoSQL = f'insert into produtoinformatica (nome, preco) values ("{nome_produto}", {valor_produto})'
+# cursor.execute(comandoSQL)
+# print(f'Seu dado foi cadastrado, {nome_produto} e {valor_produto}')
+# conexaoSQL.commit()
+
+# R - READ - SELECT
+# comandoSQL = f'SELECT nome, preco FROM produtoinformatica'
+# cursor.execute(comandoSQL)
+# resultadoProduto = cursor.fetchall()
+# print(resultadoProduto)
+
+#U - UPDATE
+nome_produto = "Teclado"
+valor = 120
+comandoSQL = f'update produtoinformatica SET preco = {valor} where nome = "{nome_produto}"'
+cursor.execute(comandoSQL) # executar o comando sql
+conexaoSQL.commit() #inserir os dados no mysql
+
+cursor.close()
+conexaoSQL.close()
+
+__________________________________________________
+
+=D
+
+______________________________________________________
+
+create database turma619
+
+#criando a tabela
+create table aluno(
+	id int primary key auto_increment not null,
+   	nome varchar(255),
+	cpf numeric(11) unique,
+	telefone numeric(11)
+    
+);
+
+____________________________________________________
+
+#add coluna a tabela
+alter table aluno add column idade int;
+____________________________________________________
+# deletar as colunas 
+alter table aluno drop column testeUm, drop column testeDois
+
+_____________________________________________________
+
+# add chave estrangeira a tabela 
+
+create table turma
+(
+	id_turma int primary key not null unique,
+    
+    fk_aluno int,
+    fk_professor int,
+    fk_disciplina int,
+    
+    foreign key ( fk_aluno) references aluno(id_aluno),
+    foreign key ( fk_professor) references professor(id_professor)
+)
+______________________________________________________
+# add inserir uma nova chave estrangeira 
+alter table turma add foreign key(fk_disciplina) references disciplina (id_disciplina)
+
+________________________________________________________
+#inserindo dados na tabela
+insert into aluno(nome, cpf, telefone, idade) values ('Debóra',05195258775, 85878879214, 15)
+________________________________________________________
+#att tabela 
+update aluno set idade = 39 where nome = 'José'
+
+________________________________________________________
+#select com atribuição de salário 
+select nome_professor, salario_professor + (salario_professor *2) as pl from professor
+
+____________________________________________________________
+#função - 
+select sum(salario_professor ) as totalDeProfessores from professor
+	soma o total
+
+select count(*  ) as totalDeProfessores from professor
+	conta o total
+
+select avg(salario_professor  ) as totalDeProfessores from professor
+	media dos valores 
+
+select nome, telefone from aluno where nome like 'M%'
+	seleciona todos os valores 
