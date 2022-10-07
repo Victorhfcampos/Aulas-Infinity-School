@@ -1,0 +1,223 @@
+https://docs.google.com/presentation/d/1HAE0RCAc7q71bBccu75aMPez2hhuLOfaB3ImVBjSOuo/edit#slide=id.p1
+
+http://dontpad.com/619aula16
+
+Players.csv
+b
+
+------------------------------------
+
+- Funções lambda 
+
+- Função map 
+
+- List comprehension
+
+------------------------------------
+
+#area = lado * lado
+
+# def calcularArea(lado: int):
+#     area = lado ** 2
+#
+#     return area
+#
+# area = calcularArea(5)
+# print(f'Área do quadrado: {area}')
+
+
+'''
+lambda <parâmetros>: <instrução>
+
+'''
+
+# area = lambda l: l ** 2
+# 
+# print(f'Área do quadrado: {area(5)}')
+
+
+imc = lambda p, a: p / a ** 2 
+
+print(f'Seu IMC é: {imc(75, 1.81):.2f}')
+
+------------------------------------
+
+1. Crie uma função lambda que calcula a área de um triângulo, lembrando que:
+Area = base * altura / 2 
+
+area_t = lambda b, h: b * h / 2
+
+print(f'Área do triângulo: {area_t(10,15)}')
+
+------------------------------------
+
+2. Crie uma função lambda que calcula a área de um trapézio, lembrando que:
+area = (base_menor + base_maior) * altura / 2
+
+trapezio = lambda b_m, b_M, h: (b_m + b_M) * h / 2
+
+print(f'Área do trapézio: {trapezio(10,13, 8)}')
+
+------------------------------------
+
+# def gerarAreas(lista: list):
+#     areas = []
+#
+#     for lado in lista:
+#         area = lado ** 2
+#
+#         areas.append(area)
+#
+#     return areas
+#
+# areas = gerarAreas(lados)
+#
+# print(f'Áreas: {areas}')
+
+# lados = [7, 6, 8, 9, 11, 6]
+# 
+# areas = list(map(lambda l: l ** 2, lados))
+# 
+# print(f'Áreas: {areas}')
+
+------------------------------------
+
+nomes = ['armando', 'fernando', 'mariana',
+         'joana', 'gabriela',
+         'miguel']
+
+nomes_alterado = list(map(lambda txt: txt.title(), nomes))
+
+print(f'Nomes: {nomes_alterado}')
+
+------------------------------------
+
+bases = [8, 5, 9, 6, 7]
+alturas = [4, 3, 4, 2, 5]
+
+retangulos = list(map(lambda b, h: b * h, bases, alturas))
+
+print(retangulos)
+
+------------------------------------
+
+1. preços = ["1,85", "2,89", "5,85", "9,99", "10,99"]
+
+
+precos = ["1,85", "2,89", "5,85", "9,99", "10,99"]
+
+resultado = list(map(lambda x: float(x.replace(',', '.')), precos))
+
+print(f'Resultado: {resultado}')
+
+------------------------------------
+
+2. Crie uma nova lista com os IMC's dos usuários de acordo com as listas de pesos e alturas fornecidas
+
+pesos = [50.5, 60.9, 99, 81, 74]
+
+alturas = [1.67, 1.64, 2.01, 1.97, 1.85]
+
+pesos = [50.5, 60.9, 99, 81, 74]
+
+alturas = [1.67, 1.64, 2.01, 1.97, 1.85]
+
+imcs = list(map(lambda p, a: round(p / a ** 2, 2), pesos, alturas))
+
+print(f'IMCs: {imcs}')
+
+------------------------------------
+
+lista = [x for x in range(11)]
+print(lista)
+
+lista_2 = [x for x in range(101) if x % 2 == 0]
+
+print(lista_2)
+
+frutas = ['kiwi', 'melancia', 'pessego', 'mamao', 'banana']
+
+lista_3 = [x for x in frutas if 'a' in x]
+print(lista_3)
+
+------------------------------------
+
+import pandas as pd 
+
+alturas = [1.89, 1.55, 1.64, 1.77, 2.01]
+
+type(alturas)
+
+#CTRL + ENTER
+
+#ESC + B (bellow)
+
+serie = pd.Series(alturas)
+
+serie
+type(serie)
+#atributos
+#shape: retornar uma tupla com o número de elementos da serie
+serie.shape
+
+#ndim: retornar o número de dimensões da minha estrutura 
+serie.ndim
+
+#size: retornar a quantidade de elementos da série
+serie.size
+
+#métodos
+# mean(): retornar a média dos valores (precisa ser de tipo númerico int/float)
+round(serie.mean(), 2)
+
+# min(): retorna o menor valor da série 
+serie.min()
+
+# max(): retornar o maior valor da série 
+serie.max()
+
+------------------------------------
+
+dicio = {
+    'matricula': [1233, 1234, 1235, 1236, 1237],
+    'nome': ['Kaleb Santos', 'Vitória Pamela', 'João Bernardo', 'Camila Ferreira', 'Gisele Marinho'],
+    'curso': ['Python', 'Python', 'Python', 'Metaverso', 'Data Science'],
+    'nota1': [9.6, 8.4, 5.5, 6.7, 7.1],
+    'nota2': [6.1, 5.5, 4.8, 5.9, 7.8]
+}
+
+dicio
+
+
+type(df)
+type(df['nome'])
+
+df['nota1'].max()
+df['nota1'].min()
+
+nba = pd.read_csv('Players.csv')
+
+nba
+
+------------------------------------
+
+nba.shape
+
+nba.size
+
+nba.shape[0]
+
+nba.count()
+
+nba
+
+#Ordenação de um DataFrame
+#sort_values(by='coluna')
+
+nba.sort_values(by='height')
+nba.sort_values(by='Player')
+
+#Contagem de registros a partir de uma coluna 
+#<serie>.value_counts()
+
+nba['collage'].value_counts().head(60)
