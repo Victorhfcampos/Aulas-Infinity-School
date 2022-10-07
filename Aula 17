@@ -1,0 +1,323 @@
+http://dontpad.com/619aula17
+
+aula01
+https://docs.google.com/presentation/d/1HAE0RCAc7q71bBccu75aMPez2hhuLOfaB3ImVBjSOuo/edit#slide=id.p1
+
+aula02
+https://docs.google.com/presentation/d/1yVBHNCAs97diQE_9JWrBOpEJ6EGJJ1bzS588H_pjtJw/edit#slide=id.p1
+
+Players.csv
+https://infinityschool.eadplataforma.com/upload/files/090720221657382274archive.zip
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+#Média de altura dos jogadores
+round(nba['height'].mean(), 2)
+
+#Média de peso dos jogadores
+round(nba['weight'].mean(), 2)
+
+#Maior altura
+nba['height'].max()
+
+#Maior Peso
+nba['weight'].max()
+
+#Menor altura
+nba['height'].min()
+
+#Menor peso
+nba['weight'].min()
+
+#Qual estado onde nasce mais jogadores?
+nba['birth_state'].value_counts()
+nba['birth_state'].value_counts().head(1)
+
+#Qual o jogador mais alto?
+nba.sort_values(by='height', ascending=False).head(2)
+
+#nba.iloc['<indices>', '<colunas>']
+
+dez_jogadores = nba.iloc[10:21, 1:4]
+nba.iloc[10:21, 1:6:2]
+nba.iloc[10:21, :]
+nba.iloc[:, 1:5]
+
+dez_mais_altos = nba.sort_values(by='height', ascending=False).iloc[0:10, :]
+
+#df.loc[(expressão booleana)]
+# Operadores lógicos
+# and &
+# or | 
+# not ~
+
+nba.loc[nba['height'] > 200].shape[0]
+nba.loc[(nba['height'] > 200) & (nba['birth_state'] == 'New York')]
+
+------------------------------------------------------------------------------------------------------------
+
+nba.rename(columns={'Player':'Jogador', 'height':'Altura', 'weight':'Peso',
+                   'collage':'Universidade', 'born':'Ano', 'birth_city':'Cidade',
+                   'birth_state':'Estado' }, inplace=True)
+
+----------------------------------------------------------------------------------------------------------
+
+nba.drop(columns=['Unnamed: 0', ], inplace=True)
+
+#Vendo os tipos das colunas dtypes
+nba.dtypes
+
+nba['Peso'] = nba['Peso'] * 2.204
+
+nba
+
+nba['Altura'] = nba['Altura'] / 30.48
+
+nba
+
+nba['Peso 50%'] = round(nba['Peso'] / 2, 1)
+
+nba
+
+--------------------------------------------------------------------------------------------------
+
+1. Apagar a coluna do Peso 50%
+
+nba.drop(columns=['Peso 50%'], inplace=True)
+
+2. Converter os valores da coluna altura para metros
+Para converter para cm: valor em pés * 30.48
+
+nba['Altura'] = (nba['Altura'] * 30.48) /100
+nba
+
+3. Converter   os valores da coluna peso de libras para kgs
+Para converter peso / 2.204
+
+nba['Peso'] = nba['Peso'] * 2.204
+
+4. Crie uma nova coluna com o IMC dos jogadores
+
+nba['IMC'] = nba['Peso'] / nba['Altura'] ** 2
+nba['IMC'] = round(nba['IMC'], 2)
+
+nba['Jogador'][0]
+
+-------------------------------------------------------------------------------
+
+,#,Name,Type 1
+0,1,Bulbasaur,Grass
+1,2,Ivysaur,Grass
+2,3,Venusaur,Grass
+3,3,VenusaurMega Venusaur,Grass
+4,4,Charmander,Fire
+5,5,Charmeleon,Fire
+6,6,Charizard,Fire
+7,6,CharizardMega Charizard X,Fire
+8,6,CharizardMega Charizard Y,Fire
+9,7,Squirtle,Water
+10,8,Wartortle,Water
+11,9,Blastoise,Water
+12,9,BlastoiseMega Blastoise,Water
+13,10,Caterpie,Bug
+14,11,Metapod,Bug
+15,12,Butterfree,Bug
+16,13,Weedle,Bug
+17,14,Kakuna,Bug
+18,15,Beedrill,Bug
+19,15,BeedrillMega Beedrill,Bug
+20,16,Pidgey,Normal
+21,17,Pidgeotto,Normal
+22,18,Pidgeot,Normal
+23,18,PidgeotMega Pidgeot,Normal
+24,19,Rattata,Normal
+25,20,Raticate,Normal
+26,21,Spearow,Normal
+27,22,Fearow,Normal
+28,23,Ekans,Poison
+29,24,Arbok,Poison
+30,25,Pikachu,Electric
+31,26,Raichu,Electric
+32,27,Sandshrew,Ground
+33,28,Sandslash,Ground
+34,29,Nidoran♀,Poison
+35,30,Nidorina,Poison
+36,31,Nidoqueen,Poison
+37,32,Nidoran♂,Poison
+38,33,Nidorino,Poison
+39,34,Nidoking,Poison
+40,35,Clefairy,Fairy
+41,36,Clefable,Fairy
+42,37,Vulpix,Fire
+43,38,Ninetales,Fire
+44,39,Jigglypuff,Normal
+45,40,Wigglytuff,Normal
+46,41,Zubat,Poison
+47,42,Golbat,Poison
+48,43,Oddish,Grass
+49,44,Gloom,Grass
+50,45,Vileplume,Grass
+51,46,Paras,Bug
+52,47,Parasect,Bug
+53,48,Venonat,Bug
+54,49,Venomoth,Bug
+55,50,Diglett,Ground
+56,51,Dugtrio,Ground
+57,52,Meowth,Normal
+58,53,Persian,Normal
+59,54,Psyduck,Water
+60,55,Golduck,Water
+61,56,Mankey,Fighting
+62,57,Primeape,Fighting
+63,58,Growlithe,Fire
+64,59,Arcanine,Fire
+65,60,Poliwag,Water
+66,61,Poliwhirl,Water
+67,62,Poliwrath,Water
+68,63,Abra,Psychic
+69,64,Kadabra,Psychic
+70,65,Alakazam,Psychic
+71,65,AlakazamMega Alakazam,Psychic
+72,66,Machop,Fighting
+73,67,Machoke,Fighting
+74,68,Machamp,Fighting
+75,69,Bellsprout,Grass
+76,70,Weepinbell,Grass
+77,71,Victreebel,Grass
+78,72,Tentacool,Water
+79,73,Tentacruel,Water
+80,74,Geodude,Rock
+81,75,Graveler,Rock
+82,76,Golem,Rock
+83,77,Ponyta,Fire
+84,78,Rapidash,Fire
+85,79,Slowpoke,Water
+86,80,Slowbro,Water
+87,80,SlowbroMega Slowbro,Water
+88,81,Magnemite,Electric
+89,82,Magneton,Electric
+90,83,Farfetch'd,Normal
+91,84,Doduo,Normal
+92,85,Dodrio,Normal
+93,86,Seel,Water
+94,87,Dewgong,Water
+95,88,Grimer,Poison
+96,89,Muk,Poison
+97,90,Shellder,Water
+98,91,Cloyster,Water
+99,92,Gastly,Ghost
+100,93,Haunter,Ghost
+101,94,Gengar,Ghost
+102,94,GengarMega Gengar,Ghost
+103,95,Onix,Rock
+104,96,Drowzee,Psychic
+105,97,Hypno,Psychic
+106,98,Krabby,Water
+107,99,Kingler,Water
+108,100,Voltorb,Electric
+109,101,Electrode,Electric
+110,102,Exeggcute,Grass
+111,103,Exeggutor,Grass
+112,104,Cubone,Ground
+113,105,Marowak,Ground
+114,106,Hitmonlee,Fighting
+115,107,Hitmonchan,Fighting
+116,108,Lickitung,Normal
+117,109,Koffing,Poison
+118,110,Weezing,Poison
+119,111,Rhyhorn,Ground
+120,112,Rhydon,Ground
+121,113,Chansey,Normal
+122,114,Tangela,Grass
+123,115,Kangaskhan,Normal
+124,115,KangaskhanMega Kangaskhan,Normal
+125,116,Horsea,Water
+126,117,Seadra,Water
+127,118,Goldeen,Water
+128,119,Seaking,Water
+129,120,Staryu,Water
+130,121,Starmie,Water
+131,122,Mr. Mime,Psychic
+132,123,Scyther,Bug
+133,124,Jynx,Ice
+134,125,Electabuzz,Electric
+135,126,Magmar,Fire
+136,127,Pinsir,Bug
+137,127,PinsirMega Pinsir,Bug
+138,128,Tauros,Normal
+139,129,Magikarp,Water
+140,130,Gyarados,Water
+141,130,GyaradosMega Gyarados,Water
+142,131,Lapras,Water
+143,132,Ditto,Normal
+144,133,Eevee,Normal
+145,134,Vaporeon,Water
+146,135,Jolteon,Electric
+147,136,Flareon,Fire
+148,137,Porygon,Normal
+149,138,Omanyte,Rock
+150,139,Omastar,Rock
+151,140,Kabuto,Rock
+152,141,Kabutops,Rock
+153,142,Aerodactyl,Rock
+154,142,AerodactylMega Aerodactyl,Rock
+155,143,Snorlax,Normal
+156,144,Articuno,Ice
+157,145,Zapdos,Electric
+158,146,Moltres,Fire
+159,147,Dratini,Dragon
+160,148,Dragonair,Dragon
+161,149,Dragonite,Dragon
+162,150,Mewtwo,Psychic
+163,150,MewtwoMega Mewtwo X,Psychic
+164,150,MewtwoMega Mewtwo Y,Psychic
+165,151,Mew,Psychic
+
+1. Fire = Vermelho
+2. Water = Azul
+3. Poison = Roxo
+4. Grass = Verde
+5. Rock = Cinza
+6. Outro = Bege
+
+# Crie uma nova coluna chamada Type 2, que irá se basear de acordo com o 
+# valor da coluna Type 1. Para cada valor em Type 1, o valor da coluna Type 2
+# terá um valor diferente 
+
+# 1. Fire = Vermelho
+# 2. Water = Azul
+# 3. Poison = Roxo
+# 4. Grass = Verde
+# 5. Rock = Cinza
+# 6. Outro = Bege
+
+type2 = []
+for i in range(len(pk)):
+    if pk['Type 1'][i] == 'Fire':
+        type2.append('Vermelho')
+    elif pk['Type 1'][i] == 'Water':
+        type2.append('Azul')
+    elif pk['Type 1'][i] == 'Poison':
+        type2.append('Roxo')
+    elif pk['Type 1'][i] == 'Grass':
+        type2.append('Verde')
+    elif pk['Type 1'][i] == 'Rock':
+        type2.append('Cinza')
+    else:
+        type2.append('Bege')
+        
+type2
+
+pk = pd.concat([pk, type2], axis=1)
+
+pk
+----------------------------------------------------------------------------
+
+pk['Type 3'] = pk['Type 1'].map(lambda txt: 'Vermelho' if txt == 'Fire' else 'Outro')
+
+pk
+
+type4 = {
+    'Type 4': ['Vermelho' if x == 'Fire'  else 'Outro' for x in pk['Type 1']] 
+}
+type4
