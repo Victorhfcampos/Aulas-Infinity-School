@@ -1,0 +1,242 @@
+Atividade 01
+Determinada empresa resolveu dar um aumento a todos seus funcionários seguindo a seguinte tabela:
+Salários até R$1.000,00 – ajuste de 15%
+Salários até R$3.000,00 – ajuste de 10%
+Salários acima de R$3.000,00 – ajuste de 5%
+Crie um algoritmo que solicite o salário e, em seguida, informe o valor reajustado.
+
+salario = float(input("Informe o seu salário: "))
+
+if salario <= 1000:
+    salario = salario*1.15
+elif salario > 1000 and salario <= 3000:
+    salario = salario *1.10
+else:
+    salario = salario*1.05
+
+print(f"Seu salário reajustado é de R${salario:.2f} ")
+
+Atividade 02
+Escreva um algoritmo que solicite ao usuário a entrada de 10 idades e mostre na tela a classificação da população seguindo os critérios:
+média até 18 anos – População jovem
+média entre 18 e 58 anos – População adulta
+média acima de 58 anos – População idosa
+
+soma = 0
+for i in range(0,10):
+    idade = int(input("Digite uma idade: "))
+    soma = soma + idade
+    #soma += idade
+
+media = soma/10
+
+if media < 18:
+    print("População jovem")
+elif media >= 18 and media <58:
+    print("População adulta")
+else:
+    print("População idosa")
+ 
+Definição de Função
+Funções são blocos de código que realizam determinadas tarefas que normalmente precisam ser executadas diversas vezes dentro de uma aplicação.
+Sintaxe:
+- Sempre iniciamos a definição da função com a palavra reservada ‘def’;
+- A inclusão de parâmetros é opcional;
+- Caso não haja parâmetros, o nome da função deve ser seguida por parênteses vazios ‘():’
+Exemplo:
+def calculaMedia(num1,num2):
+    media = (num1+num2)/2
+    print(f'A média dos números informados vale {media}')
+
+calculaMedia(4,6)
+
+Exemplo 2:
+def calculaMedia(num1,num2):
+    media = (num1+num2)/2
+    print(f'A média dos números informados vale {media}')
+
+num1 = int(input('Informe o primeiro número: '))
+num2 = int(input('Informe o segundo número: '))
+calculaMedia(num1,num2)
+
+Atividade 03
+Escreva uma função que receba um número inteiro como parâmetro e informe se ele é positivo, negativo ou nulo
+def verificaPositivo(num):
+    if num > 0:
+        print("Positivo")
+    elif num < 0:
+        print("Negativo")
+    else:
+        print("Nulo")
+
+numero = int(input("Informe um número: "))
+verificaPositivo(numero)
+
+def verificaPositivo():
+    num = int(input("Informe um número: "))
+    if num > 0:
+        print("Positivo")
+    elif num < 0:
+        print("Negativo")
+    else:
+        print("Nulo")
+
+verificaPositivo()
+
+Atividade 04
+Escreva uma função que receba um nome como parâmetro e informe quantas vogais existem nele
+def contaVogais(nome):
+    contV = 0
+    for letra in nome:
+        if letra.lower() in 'aeiou':
+            contV += 1
+    print(contV)
+
+nome = input('Informe seu nome: ')
+contaVogais(nome)
+
+Atividade 05
+Variáveis locais:
+- São as variáveis criadas dentro do escopo da função e não podem ser acessadas fora dela
+
+MAS E SE QUISERMOS ACESSAR UMA VARIÁVEL LOCAL?
+def calculaMedia(num1,num2):
+    media = (num1+num2)/2
+    return media
+
+num1 = int(input('Informe o primeiro número: '))
+num2 = int(input('Informe o segundo número: '))
+
+media = calculaMedia(num1,num2)
+print(f'A média dos números informados vale {media}')
+
+Crie uma função que receba dois números como parâmetros, verifique e retorne a quantidade (0, 1 ou 2) de números pares:
+def verificaPares(num1, num2):
+    qtdP = 0
+    if num1 % 2 == 0:
+        qtdP += 1
+    if num2 % 2 == 0:
+        qtdP += 1
+    return qtdP
+
+num1 = int(input("Digite um número: "))
+num2 = int(input("Digite outro número: "))
+
+contador = verificaPares(num1, num2)
+
+print(f"Você digitou {contador} números pares")
+
+Atividade 06
+Escreva uma função que receba dois parâmetros, sendo o primeiro um número inteiro e o segundo uma porcentagem,
+depois calcule e retorne o valor do número somado ao aumento percentual informado.
+
+def calculaPercentual(num, perc):
+    total = num*(1+(perc/100))
+    return total
+
+num = int(input("Informe um valor inteiro: "))
+perc = float(input("Informe um percentual de aumento: "))
+
+total = calculaPercentual(num, perc)
+print(f"O total após o aumento foi de {total:.2f}")
+
+Atividade 07
+Crie duas funções, uma que irá SOLICITAR, verificar e retornar qual o maior dentre dois números pares informado,
+outra que fará a mesma coisa para dois números ímpares. Em seguida, some os dois retornos e apresente o valor do resultado.
+
+def verificaPar():
+    par1 = int(input("Informe um número par: "))
+    par2 = int(input("Informe outro número par: "))
+    if par1 >= par2:
+        return par1
+    else:
+        return par2
+
+def verificaImpar():
+    impar1 = int(input("Informe um número impar: "))
+    impar2 = int(input("Informe outro número impar: "))
+    if impar1 >= impar2:
+        return impar1
+    else:
+        return impar2
+par = verificaPar()
+impar = verificaImpar()
+
+print(f"A soma dos maiores números é igual a {par+impar}")
+
+Atividade 08
+Escreva uma função que deve receber seu nome como parâmetro e retornar a mensagem “Boa aula, {seuNome}”.
+Caso por algum engano não seja informado nenhum parâmetro, o retorno deve ser “Boa aula, Fulaninho de Tal”.
+
+Exemplo
+def mensagem(nome, msg = 'Saudações, '):
+    print(f'{msg}{nome}')
+
+nome = input('Qual seu nome? ')
+mensagem(nome)
+
+def saudacao(nome ="Fulaninho de Tal"):
+    print(f"Boa aula, {nome}")
+
+saudacao("Victor")
+
+Atividade 09
+Escreva uma função que recebe como entrada um número inteiro positivo n e retorne a soma de todos os inteiros positivos menores ou iguais a n.
+
+def somarInteiros(n):
+    soma = 0
+    for numero in range(1, n+1):
+        soma += numero
+    return soma
+
+n = int(input("Digite um número inteiro positivo: "))
+soma = somarInteiros(n)
+
+print(f'A soma dos números inteiros positivos iguais ou menor que ' f'{n} é {soma}')
+
+Atividade 10
+Escreva uma função que pode receber três parâmetros (dois números e uma operação),
+calcule e retorne o valor do resultado.
+Caso não seja passado o terceiro parâmetro (a operação), assuma como valor padrão a soma.
+
+def operacao(num1, num2, oper='+'):
+    if oper == '+':
+        return num1+num2
+    elif oper =='-':
+        return num1-num2
+    elif oper =='*':
+        return num1*num2
+    elif oper == '/':
+        return num1/num2
+    else:
+        print('Operção inválida')
+
+num1 = int(input('Informe o primeiro número: '))
+num2 = int(input('Informe o segundo número: '))
+oper = input('Informe a operação que deseja realizar (+ - * /) ')
+
+resultado = operacao(num1, num2)
+print(resultado)
+
+Atividade 11
+Faça uma função que informe a quantidade de caracteres de uma frase informada por parâmetro.
+
+def conta(frase):
+    frase1 = frase.replace(' ', '')
+    qtd = len(frase1)
+    return qtd
+
+frase = 'A aula acabou'
+qtd = conta(frase)
+print(qtd)
+
+Atividade 11
+Faça uma função que informe a quantidade de caracteres de uma frase informada por parâmetro.
+def conta(frase):
+    frase1 = frase.replace(' ','')
+    qtd = len(frase1)
+    return qtd
+
+frase = 'A aula acabou bora sextar'
+qtd = conta(frase)
+print(qtd)
