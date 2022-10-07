@@ -1,0 +1,280 @@
+Atividade 01
+Crie um programa que solicite o nome e o CPF de 5 pessoas e armazene-os em duas listas diferentes, 
+mas sempre fazendo uma validação e, caso o CPF já esteja cadastrado, retorne uma mensagem avisando
+e não adicione os valores às listas.
+
+lista_nome = []
+lista_cpf = []
+
+for i in range(0, 5):
+    nome = input('Nome: ')
+    cpf = input('CPF: ')
+
+    if cpf in lista_cpf:
+        print('CPF já existente')
+    else:
+        lista_nome.append(nome)
+        lista_cpf.append(cpf)
+
+print(lista_nome)
+print(lista_cpf)
+
+Atividade 02
+Refaça a questão anterior utilizando dicionários, onde a chave será o nome, e o valor o CPF.
+
+dicionario_cpf = {}
+
+for i in range(0, 3):
+    nome = input('Nome: ')
+    cpf = input('CPF: ')
+
+    if cpf in dicionario_cpf.values():
+        print('CPF já existente')
+    else:
+        dicionario_cpf[nome] = cpf
+
+print(dicionario_cpf)
+
+ORIENTAÇÃO A OBJETO
+Tem como objetivo aproximar as estruturas do programa às do mundo real, atribuindo características e ‘ações’ aos objetos;
+Tem como base dois principais conceitos: Classes e Objetos
+
+Classes
+Podemos definir um novo tipo de variável com dados e comportamentos específicos;
+Os dados são chamados de ATRIBUTOS e os compotamentos de MÉTODOS.
+
+Atividade 03
+Crie uma classe chamada ContaCorrente e faça o construtor com os atributos ‘agencia’, ‘conta’, ‘saldo’ e ‘favorecido’.
+class ContaCorrente:
+    def __init__(self, agencia, conta, saldo, favorecido):
+        self.agencia = agencia
+        self.conta = conta
+        self.saldo = saldo
+        self.favorecido = favorecido
+        
+Atividade 04
+Utilizando a classe criada na questão anterior,
+crie um programa que solicite ao usuário para entrar com as informações e,
+em seguida, inicialize um objeto passando as entradas como parâmetros.
+Por fim, apresente em tela todos os atributos do seu objeto,
+
+class ContaCorrente:
+    def __init__(self, agencia, conta, saldo, favorecido):
+        self.agencia = agencia
+        self.conta = conta
+        self.saldo = saldo
+        self.favorecido = favorecido
+
+agencia = input('Agência: ')
+conta = input('Conta: ')
+saldo = 0.0
+favorecido = input('Favorecido: ')
+
+conta1 = ContaCorrente(agencia, conta, saldo, favorecido)
+print(conta1.agencia)
+print(conta1.conta)
+print(conta1.saldo)
+print(conta1.favorecido)
+
+Atividade 05
+Crie um método para depositar onde será passado um valor como parâmetro
+
+class ContaCorrente:
+    def __init__(self, agencia, conta, saldo, favorecido):
+        self.agencia = agencia
+        self.conta = conta
+        self.saldo = saldo
+        self.favorecido = favorecido
+        
+    def depositaValor(self, valor):
+        if valor > 0:
+            self.saldo += valor
+        else:
+            print('Valor inválido')
+            
+agencia = input('Agência: ')
+conta = input('Conta: ')
+saldo = 0.0
+favorecido = input('Favorecido: ')
+
+conta1 = ContaCorrente(agencia, conta, saldo, favorecido)
+print(conta1.agencia)
+print(conta1.conta)
+print(conta1.saldo)
+print(conta1.favorecido)
+
+Atividade 06
+Agora que já temos o método para depositar um valor, realize uma sequência de depósitos e, por fim, imprima o saldo em tela.
+
+class ContaCorrente:
+    def __init__(self, agencia, conta, saldo, favorecido):
+        self.agencia = agencia
+        self.conta = conta
+        self.saldo = saldo
+        self.favorecido = favorecido
+        
+    def depositaValor(self, valor):
+        if valor > 0:
+            self.saldo += valor
+        else:
+            print('Valor inválido')
+            
+agencia = input('Agência: ')
+conta = input('Conta: ')
+saldo = 0.0
+favorecido = input('Favorecido: ')
+
+conta1 = ContaCorrente(agencia, conta, saldo, favorecido)
+
+for i in range(0, 3):
+    valor = float(input('Depósito: '))
+    conta1.depositaValor(valor)
+
+print(conta1.agencia)
+print(conta1.conta)
+print(conta1.saldo)
+print(conta1.favorecido)
+
+Atividade 07
+Utilizando a classe criada durante a aula, vamos realizar os seguintes processos:
+- Inicializar duas contas diferentes;
+- Realizar uma sequência de depósitos e saques nas duas contas;
+- Implementar um método de transferência e realizar uma entre as contas criadas.
+- Implementar um novo método que irá apresentar as informações da conta em tela
+
+class ContaCorrente:
+    def __init__(self, agencia, conta, saldo, favorecido):
+        self.agencia = agencia
+        self.conta = conta
+        self.saldo = saldo
+        self.favorecido = favorecido
+
+    def depositaValor(self, valor):
+        if valor > 0:
+            self.saldo += valor
+        else:
+            print('Valor inválido')
+
+    def sacaValor(self, valor):
+        if valor <= self.saldo:
+            self.saldo = valor
+        else:
+            print('Saldo insuficiente')
+
+    def transfereValor(self, valor, conta):
+        if valor <= self.saldo:
+            self.saldo -= valor
+            conta.saldo += valor
+        else:
+            print('Saldo insuficiente')
+
+conta1 = ContaCorrente(123, 456, 200, 'Victor')
+conta2 = ContaCorrente(123, 789, 0.0, 'Bia')
+
+print(conta1.saldo)
+print(conta2.saldo)
+
+conta1.transfereValor(100, conta2)
+
+print(f'\n{conta1.saldo}')
+print(conta2.saldo)
+
+Atividade 08
+class ContaCorrente:
+    def __init__(self, agencia, conta, saldo, favorecido):
+        self.agencia = agencia
+        self.conta = conta
+        self.favorecido = favorecido
+        self.saldo = saldo
+
+    def depositaValor(self, valor):
+        if valor > 0:
+            self.saldo += valor
+        else:
+            print('Valor inválido')
+
+    def sacaValor(self, valor):
+        if valor <= self.saldo:
+            self.saldo -= valor
+        else:
+            print('Saldo insuficiente')
+
+    def transfereValor(self, valor, conta):
+        if valor <= self.saldo:
+            self.saldo -= valor
+            conta.saldo += valor
+        else:
+            print('Saldo insuficiente')
+
+    def extrato(self):
+        print(f'\nAgência: {self.agencia}')
+        print(f'Conta: {self.conta}')
+        print(f'Titular: {self.favorecido}')
+        print(f"Saldo: R${self.saldo}")
+
+'''agencia = input('Agência: ')
+conta = input('Conta: ')
+favorecido = input('Favorecido: ')
+saldo = 0.0'''
+
+conta1 = ContaCorrente(123, 1234, 200, 'Pedro')
+conta2 = ContaCorrente(123, 2345, 0.0, 'Juliana')
+
+# print(conta1.saldo)
+# print(conta2.saldo)
+
+valor = float(input('Valor a ser transferido: '))
+conta1.transfereValor(valor, conta2)
+
+# print(f'\n{conta1.saldo}')
+# print(conta2.saldo)
+
+conta1.extrato()
+conta2.extrato()
+
+# for i in range(0,3):
+#     valor = float(input('Depósito: '))
+#     conta1.depositaValor(valor)
+#
+# conta1.sacaValor(100)
+# conta1.sacaValor(150)
+
+Atividade 09
+Crie uma classe chamada Pessoa. Ela deve ter 4 atributos: nome, idade, altura e peso.
+Também crie os métodos engordar, emagrecer, crescer e envelhecer.
+OBS: Por padrão, a cada ano que a pessoa envelhece, ela deve crescer 0,5cm,
+desde que não tenha passado de 21 anos.
+class Pessoa:
+    def __init__(self, nome, idade, altura, peso):
+        self.nome = nome
+        self.idade = idade
+        self.altura = altura
+        self.peso = peso
+
+    def engordar(self, kg):
+        if kg > 0:
+            self.peso += kg
+
+    def emagrecer(self, kg):
+        if kg > 0 and kg < self.peso:
+            self.peso -= kg
+
+    def crescer(self, cm):
+        if cm > 0:
+            self.altura += cm
+
+    def envelhecer(self):
+        if self.idade <= 21:
+            self.altura += 0.5
+        self.idade += 1
+
+pessoa1 = Pessoa('Victor', 19, 180, 86)
+pessoa1.engordar(4)
+pessoa1.emagrecer(6)
+pessoa1.crescer(2)
+pessoa1.envelhecer()
+
+print(pessoa1.nome)
+print(pessoa1.peso)
+print(pessoa1.idade)
+print(pessoa1.altura)
