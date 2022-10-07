@@ -1,0 +1,120 @@
+Atividade 01
+O que é lógica de programação para você?
+Lógica de programação são instruções organizadas através de algoritmos para resolução de problemas.
+
+Atividade 02
+Descrever com instruções seu percurso até o momento atual (sala de aula):
+Ir de um ponto da cidade (casa, trabalho) até a sala de aula na Infinity School
+Pegar a chave do carro
+Abrir a porta do carro
+Entrar e fechar a porta
+Ligar o carro
+Dirigir até o destino
+Estacionar
+Abrir a porta do carro e descer
+Fechar a porta e travar o carro
+Ir até o prédio da Infinity School
+Abrir a porta e entrar na recepção
+Marcar presença
+Subir as escadas
+Entrar na sala de aula
+Sentar em uma cadeira
+Utilizar um computador para a aula
+
+Atividade 03
+Ranking de linguagens de programação
+Ano 2020: 1º JavaScript, 2º HTML/CSS, 3º SQL.
+Fonte: https://www.impacta.com.br/blog/qual-a-linguagem-de-programacao-mais-usada/#:~:text=Tecnologia%20de%20programa%C3%A7%C3%A3o%20MAIS%20amada&text=%C3%89%20o%20quarto%20ano%20consecutivo,mundo%20da%20programa%C3%A7%C3%A3o%20%C3%A9%20formado.
+Ano 2021: 1º Python, 2º C#, 3º Visual Basic. Fonte: https://canaltech.com.br/seguranca/qual-foi-a-linguagem-de-programacao-mais-popular-de-2021-205993/
+Perspectiva para o ano de 2022: 1º Python, 2º JavaScript, 3º Go. Fonte: https://nexttechnology.io/top-10-programming-languages-for-2022/
+
+Atividade 04
+Liste 3 valores para cada tipo de variável:
+Int - 53, 22, 71
+String - "Qualquer palavra ou frase", "Estou na aula 01", "Seleção para monitores"
+Float - 2.7, 3.9, 9.74
+
+Atividade 05
+# print("Olá, mundo!")
+# print("Aula Introdução ao Python")
+print("Esta é uma aula de programação")
+# print("Vimos que existem várias linguagens,")
+# print("como")
+# print("a linguagem Java!")
+print("A linguagem que estamos utilizando é")
+print("a linguagem Python!")
+print("Nossa Aula é na")
+# print("Infinity")
+# print("também conhecida como")
+print("Infinity School.")
+print("Bons códigos!")
+# print("Esta Linha será um comentário em breve!")
+
+Atividade 06
+print(10*50)
+multiplicacao = 10 * 50
+print(multiplicacao)
+numero01 = 10
+numero02 = 50
+print(numero01 * numero02)
+
+Atividade 07
+print((8 + 9 + 7) / 3)
+numero01 = 8
+numero02 = 9
+numero03 = 7
+numero04 = 3
+print((numero01 + numero02 + numero03) / numero04)
+print("A média é", (8+9+7)/3)
+soma = 8+7+9
+print(soma/3)
+
+Atividade 08
+#nome = input("Qual o seu nome?")
+#print(type(nome))
+
+#peça o nome e o sobrenome do usuário e mostre em tela
+nome = input("Digite o seu primeiro nome:")
+sobrenome = input("Digite o seu sobrenome:")
+print(nome, sobrenome)
+
+Atividade 08.1
+#Peça dois números INTEIROS e apresente a SOMA dos dois
+numero01 = int(input("Número 01:"))
+numero02 = int(input("Número 02:"))
+soma = numero01 + numero02
+print(soma)
+
+Atividade 09
+#nota01 = int(input("Digite a nota 01:"))
+#nota02 = int(input("Digite a nota 02:"))
+#nota03 = int(input("Digite a nota 03:"))
+#nota04 = int(input("Digite a nota 04:"))
+#media = ((nota01+nota02+nota03+nota04)/4)
+#print(media)
+
+nota1 = int(input("Informe a nota 1:"))
+nota2 = int(input("Informe a nota 2:"))
+nota3 = int(input("Informe a nota 3:"))
+nota4 = int(input("Informe a nota 4:"))
+soma = nota1 + nota2 + nota3 + nota4
+media = soma / 4
+print("A sua média é:", media)
+
+Atividade 10
+#Peça dois números ao usuário e mostre os resultados de uma calculadora básica:
+num_01 = float(input("Digite o primeiro número:"))
+num_02 = float(input("Digite o segundo número:"))
+soma = num_01 + num_02
+subtracao = num_01 - num_02
+multiplicacao = num_01 * num_02
+divisao = num_01 / num_02
+print("A soma entre dois números é:", soma)
+print("A subtração entre dois números é:", subtracao)
+print("A multiplicação entre dois números é:", multiplicacao)
+print("A divisão entre dois números é:", divisao)
+
+Atividade Desafio
+Digite um CPF e imprima em tela
+print("048", "334", "849", sep=".", end="-")
+print("28")
