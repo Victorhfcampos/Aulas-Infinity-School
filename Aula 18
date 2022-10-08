@@ -1,0 +1,71 @@
+https://docs.google.com/presentation/d/1yVBHNCAs97diQE_9JWrBOpEJ6EGJJ1bzS588H_pjtJw/edit#slide=id.g13d39605cd1_0_98
+
+https://docs.google.com/presentation/d/1rp_voYu3B0YT6ilm1YjXdKxiSQPyVQWc_KteoHCQakk/edit#slide=id.p1
+
+train.csv
+https://infinityschool.eadplataforma.com/upload/files/220720221658507951titanic.zip
+
+Players.csv
+https://infinityschool.eadplataforma.com/upload/files/090720221657382274archive.zip
+
+-------------------------------------------------------
+
+IMC entre 20 e 22 "Ótimo"
+IMC entre 23 e 25 "Bom"
+Outro "Ruim"
+
+situacao = []
+
+for i in range(len(nba)):
+    if nba['IMC'][i] >= 20 and nba['IMC'][i] < 23:
+        situacao.append('Ótimo')
+    elif nba['IMC'][i] > 23 and nba['IMC'][i] < 26:
+        situacao.append('Bom')
+    else:
+        situacao.append('Ruim')
+        
+situacao
+
+situacao = pd.DataFrame(situacao, columns=['Situação'])
+
+situacao
+
+nba = pd.concat([nba, situacao], axis='columns')
+
+nba
+
+nba = nba.reindex(columns=['Player', 'height', 'weight',
+                           'IMC', 'Situação', 'collage', 'birth_state', 
+                          'birth_city'])
+
+nba
+
+nba['Situação'] = nba['IMC']
+
+for i in range(len(nba)):
+    if nba['IMC'][i] >= 20 and nba['IMC'][i] < 23:
+        nba['Situação'][i] = 'Ótimo'
+    elif nba['IMC'][i] > 23 and nba['IMC'][i] < 26:
+        nba['Situação'][i] = 'Bom'
+    else:
+        nba['Situação'][i] = 'Ruim'
+        
+nba
+nba = nba.drop(nba.index[[1,2,3]])
+nba = nba.reset_index(drop=True)
+
+nba.head(10)
+
+nba['height'].isnull().sum()
+nba['height'].fillna(nba['height'].mean(), inplace=True)
+
+nba['weight'].isnull().sum()
+nba['weight'].fillna(nba['weight'].median(), inplace=True)
+
+nba['birth_city'].isnull().sum()
+nba['birth_city'].fillna('New York', inplace=True)
+
+nba['born'].isnull().sum()
+nba['birth_state'].fillna(nba['birth_state'].mode()[0], inplace=True)
+
+nba.dropna(inplace=True)
