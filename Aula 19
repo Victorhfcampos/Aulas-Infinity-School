@@ -1,0 +1,151 @@
+619aula19
+
+https://docs.google.com/presentation/d/1rp_voYu3B0YT6ilm1YjXdKxiSQPyVQWc_KteoHCQakk/edit#slide=id.g13e097fc48d_0_5
+
+----------------------------------------------------------------
+
+https://docs.google.com/presentation/d/1yVBHNCAs97diQE_9JWrBOpEJ6EGJJ1bzS588H_pjtJw/edit#slide=id.g13d39605cd1_0_98
+
+----------------------------------------------------------------
+
+https://docs.google.com/presentation/d/14c-hQhR61_Ak7VASk5E0sw7a7ceYmJdkoaO6nl3Pdlg/edit#slide=id.p1
+
+----------------------------------------------------------------
+
+https://medium.com/marciojesus/investigando-o-naufr%C3%A1gio-do-titanic-b478c7750d31
+
+----------------------------------------------------------------
+
+train.csv
+https://infinityschool.eadplataforma.com/upload/files/220720221658507951titanic.zip
+
+----------------------------------------------------------------
+
+Players.csv
+https://infinityschool.eadplataforma.com/upload/files/090720221657382274archive.zip
+
+----------------------------------------------------------------
+
+csv = pd.read_excel('Pasta1.xlsx')
+
+# 1. Substituir os estados faltantes pela moda função .mode()
+csv['Estado'].fillna(csv['Estado'].mode()[0], inplace=True)
+
+# 2. Substituir o clube faltante para Palmeiras
+csv['Clube'].fillna('Palmeiras', inplace=True)
+
+
+# 3. Substituir os gols faltantes pela média
+csv['Gols'].fillna(csv['Gols'].mean(), inplace=True)
+
+#4 4. Substituir os cartões faltantes pela mediana 
+csv['Cartões A.'].fillna(csv['Cartões A.'].median(), inplace=True)
+
+-----------------------------------------------------------------------------------------
+
+nba.iloc[0:3, 1:6]
+# and &
+# or |
+# not ~
+resultado = nba.loc[(nba['height'] > 200) & (nba['weight'] > 100)]
+
+resultado['collage'].value_counts()
+
+resultado['height'].mean()
+
+nba.loc[nba['birth_city'] == 'New York']['height'].mean()
+nba.loc[nba['height'] == nba['height'].max()]
+
+nba.query('height > 200')
+
+------------------------------------------------------------------------------------
+
+#Quantos passageiros são da terceira classe
+titanic.loc[(titanic['Survived'] == 0) & (titanic['Pclass'] == 3)].shape[0]
+
+#Qual a média de idade dos passageiros da primeira classe 
+titanic.loc[titanic['Pclass'] == 1]['Age'].mean()
+
+#Qual a média de idade dos passageiros da segunda classe 
+titanic.loc[titanic['Pclass'] == 2]['Age'].mean()
+
+#Qual a média de idade dos passageiros da terceira classe 
+titanic.loc[titanic['Pclass'] == 3]['Age'].mean()
+
+#Quantos homens estavam na primeira clase?
+titanic.loc[(titanic['Pclass'] == 1) & (titanic['Sex'] == 'male')].shape[0]
+
+#Quantos homens estavam na segunda clase?
+titanic.loc[(titanic['Pclass'] == 2) & (titanic['Sex'] == 'male')].shape[0]
+
+#Quantos homens estavam na terceira clase?
+titanic.loc[(titanic['Pclass'] == 3) & (titanic['Sex'] == 'male')].shape[0]
+
+#Quantas mulheres estavam na primeira clase?
+titanic.loc[(titanic['Pclass'] == 1) & (titanic['Sex'] == 'female')].shape[0]
+
+#Quantas mulheres estavam na segunda clase?
+titanic.loc[(titanic['Pclass'] == 2) & (titanic['Sex'] == 'female')].shape[0]
+
+#Quantas mulheres estavam na terceira clase?
+titanic.loc[(titanic['Pclass'] == 3) & (titanic['Sex'] == 'female')].shape[0]
+
+#Qual a média de idade das mulheres sobreviventes da primeira classe?
+titanic.loc[(titanic['Pclass'] == 1) & (titanic['Sex'] == 'female') & (titanic['Survived'] == 1)]['Age'].mean()
+
+#Qual a média de idade das mulheres sobreviventes da segunda classe?
+titanic.loc[(titanic['Pclass'] == 2) & (titanic['Sex'] == 'female') & (titanic['Survived'] == 1)]['Age'].mean()
+
+#Qual a média de idade das mulheres sobreviventes da terceira classe?
+titanic.loc[(titanic['Pclass'] == 3) & (titanic['Sex'] == 'female') & (titanic['Survived'] == 1)]['Age'].mean()
+
+#Qual a média de idade das mulheres não sobreviventes da primeira classe?
+titanic.loc[(titanic['Pclass'] == 1) & (titanic['Sex'] == 'female') & (titanic['Survived'] == 0)]['Age'].mean()
+
+#Qual a média de idade das mulheres não sobreviventes da segunda classe?
+titanic.loc[(titanic['Pclass'] == 1) & (titanic['Sex'] == 'female') & (titanic['Survived'] == 0)]['Age'].mean()
+
+#Qual a média de idade das mulheres não sobreviventes da terceira classe?
+titanic.loc[(titanic['Pclass'] == 1) & (titanic['Sex'] == 'female') & (titanic['Survived'] == 0)]['Age'].mean()
+
+---------------------------------------------------------------------------------------------------------
+
+nba = pd.read_csv('Players.csv')
+
+#Consultando todos os registros que estão nulos 
+nba.loc[nba['birth_city'].isnull()]
+
+#isin([lista])
+titanic.loc[(titanic['Embarked'] == 'S') | (titanic['Embarked'] == 'C')]
+titanic.loc[titanic['Embarked'].isin(['S', 'Q'])]
+
+-----------------------------------------------------------------------------------------------------
+
+dicio = {'Nome': ['José', 'Maria', 'Gabriela', 'Bernardo'],
+        'Média': ['6,5', '7,8', '5,4', '4,2'],
+        }
+
+# 1. Mapeie a coluna média e aplique uma lambda que substitua a vírgula (,)
+# pelo ponto (.)
+
+alunos['Média'] = alunos['Média'].map(lambda nota: nota.replace(',', '.'))
+
+alunos.dtypes
+
+#astype(tipo)
+alunos['Média'] = alunos['Média'].astype(float)
+
+alunos.dtypes
+
+alunos['Situação'] = alunos['Média'].map(lambda med: 'AP' if med > 6 else 'RP')
+
+situacao = alunos['Média'].map(lambda med: 'AP' if med > 6 else 'RP')
+
+situacao
+
+alunos.insert(0, 'Situacao', situacao)
+
+alunos.rename(index={0: 'José', 1: 'Maria', 2: 'Gabriela', 3: 'Bernard'},
+             inplace=True)
+
+alunos
