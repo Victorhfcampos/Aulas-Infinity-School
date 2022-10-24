@@ -69,3 +69,22 @@ nba['born'].isnull().sum()
 nba['birth_state'].fillna(nba['birth_state'].mode()[0], inplace=True)
 
 nba.dropna(inplace=True)
+
+---------------------------------------
+
+titanic.loc[titanic['Survived'] == 1].shape[0]
+titanic.loc[titanic['Survived'] == 0].shape[0]
+
+titanic.loc[titanic['Survived'] == 1]['Age'].mean()
+titanic.loc[(titanic['Survived'] == 1) & (titanic['Sex'] == 'male')]['Age'].mean()
+titanic.loc[(titanic['Survived'] == 1) & (titanic['Sex'] == 'female')]['Age'].mean()
+
+titanic.loc[(titanic['Survived'] == 0) & (titanic['Sex'] == 'male')]['Age'].mean()
+titanic.loc[(titanic['Survived'] == 0) & (titanic['Sex'] == 'female')]['Age'].mean()
+
+df = titanic.loc[titanic['Survived'] == 0]
+titanic.loc[(titanic['Survived'] == 1) & (titanic['Sex'] == 'male')].shape[0]
+titanic.loc[(titanic['Survived'] == 1) & (titanic['Sex'] == 'female')].shape[0]
+
+titanic.loc[(titanic['Survived'] == 0) & (titanic['Sex'] == 'male')].shape[0]
+titanic.loc[(titanic['Survived'] == 0) & (titanic['Sex'] == 'female')].shape[0]
