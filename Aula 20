@@ -1,0 +1,67 @@
+619aula20
+
+https://pt.stackoverflow.com/?tags=python
+
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://pt.stackoverflow.com/?tags=python'
+
+resposta = requests.get(url)
+
+#print(resposta) # devolve o código da requisição (200 = ok)
+
+# print(resposta.text) # devolve o texto (html) da página
+
+html = BeautifulSoup(resposta.text, 'html.parser')
+
+#print(html)  Vai exibiro mesmo conteudo de resposta.text, porém
+# podemos manipula-lo como html
+
+# find
+# findAll
+# select
+# select_one
+
+#print(html.select('a')) # retorna todos os links da página
+# print(html.select_one('a')) # Pegando uma tag
+# print(html.select_one('#left-sidebar')) #Pegando um id
+# print(html.select('.s-post-summary'))  # Pegando uma class
+
+for pergunta in html.select('.s-post-summary'):
+    titulo = pergunta.select_one('.s-link')
+    data = pergunta.select_one('.relativetime')
+    print(titulo.text, data.text)
+    
+    # Atividade
+    # Capture a quantide de votos que contém na pergunta
+
+-------------------------------------------------------------------
+
+https://api.themoviedb.org/3/movie/550?api_key=d28d44ac5871f93cb89a0ec6d2667f04
+
+api_key=d28d44ac5871f93cb89a0ec6d2667f04
+
+https://api.themoviedb.org/discover/movie?sort_by=popularity.desc&api_key=d28d44ac5871f93cb89a0ec6d2667f04
+
+----------------------------------------------------------------
+
+What are the most popular kids movies?
+URL: /discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc
+
+---------------------------------------------------------------
+
+What is are the best movies from 2010?
+URL: /discover/movie?primary_release_year=2010&sort_by=vote_average.desc
+
+-----------------------------------------------------------------
+
+What are the best dramas that were released this year?
+URL: /discover/movie?with_genres=18&primary_release_year=2022
+
+-----------------------------------------------------------------
+
+What are the highest rated science fiction movies that Tom Cruise has been in?
+URL: /discover/movie?with_genres=878&with_cast=500&sort_by=vote_average.desc
+
+---------------------------------------------------------------
