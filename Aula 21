@@ -1,0 +1,96 @@
+dontpad.com/619aula21
+
+https://www.themoviedb.org/
+
+chave api moviedb
+
+api_key=d28d44ac5871f93cb89a0ec6d2667f04
+
+https://api.themoviedb.org/3/movie/550?api_key=d28d44ac5871f93cb89a0ec6d2667f04
+
+https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2022-09-15&primary_release_date.lte=2022-10-22&api_key=d28d44ac5871f93cb89a0ec6d2667f04
+
+1. ----------------------------------------------
+/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc
+
+2. --------------------------------------------
+/discover/movie?with_people=287,819&sort_by=vote_average.desc
+
+3. ------------------------------------
+/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10
+
+import requests
+import json
+import pandas as pd
+
+url = 'https://api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gti=10&api_key=d28d44ac5871f93cb89a0ec6d2667f04'
+
+resposta = requests.get(url)
+    
+resposta
+
+dados_filmes = {'Titulo': [],
+                'Popularidade': [],
+                'Nota': []}
+dados_filmes = pd.DataFrame(dados_filmes)
+dados_filmes
+
+filmes = json.loads(resposta.text)
+
+for filme in filmes['results']:
+    print(f"Titulo: {filme['original_title']}")
+    print(f"Popularidade: {filme['popularity']}")
+    print(f"Nota: {filme['vote_average']}")
+    print('-----------------------------')
+    
+    filmes = json.loads(resposta.text)
+
+#print(f"Titulo: {filme['original_title']}")
+#    print(f"Popularidade: {filme['popularity']}")
+#    print(f"Nota: {filme['vote_average']}")
+#    print('-----------------------------')
+
+i = 0
+for filme in filmes['results']:
+    dados_filmes.loc[i] = [filme['original_title'], filme['popularity'], filme['vote_average']]
+    i += 1
+    
+dados_filmes
+
+# /discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc
+# 1. Pegue o id do filme, titulo (title), popularidade, overview
+# 2. Gere um novo dataframe a partir desta requisição e em seguida exporte em um csv ou excel
+
+url = 'https://api.themoviedb.org/3/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=d28d44ac5871f93cb89a0ec6d2667f04'
+filmes_2 = requests.get(url)
+
+filmes_2
+
+filmes_2 = json.loads(filmes_2.text)
+
+filmes_2
+
+import pandas as pd
+from flask import Flask, jsonify
+
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+  return '<h1>Página inicial</h1> <br> A API está no Ar.' 
+
+@app.route('/dados_api')
+def resultado():
+  dados = pd.read_csv('dados.csv')
+  maior = dados['Popularidade'].max()
+  menor = dados['Popularidade'].min()
+  media = round(dados['Popularidade'].mean(), 1)
+  
+  resposta = {'maior_pop': maior,
+            'menor_pop': menor, 
+            'media_pop': media}
+
+  return jsonify(resposta)
+
+app.run(host='0.0.0.0')
