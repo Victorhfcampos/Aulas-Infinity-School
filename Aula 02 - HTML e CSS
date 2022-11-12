@@ -1,0 +1,131 @@
+619aula23
+
+SLIDES DA AULA
+https://drive.google.com/file/d/1lgPOMeosxzrBmIK-TaUsUAfLBCOY_ulI/view
+
+https://docs.google.com/presentation/d/1nlp-2Pzt4bXqfaJ_exQ3vbcr_iz0BPnC-gr4vlpeyHA/edit#slide=id.p1
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Segunda Aula - HTML</title>
+</head>
+
+<body>
+    <h1>Nossa Revisão da Aula 01</h1>
+
+    <p>Lorem ipsum dolor sit amet, <br>
+        consectetur adipisicing elit. <br>
+        Ratione totam ullam exercitationem nulla? <br>
+        Vitae asperiores ipsam error cupiditate. <br>
+        Vel fugit, corrupti aperiam tenetur quisquam voluptates esse sunt <br>
+        doloremque tempora culpa
+    </p>
+
+    <h2>Formatação</h2>
+    <p style="background-color: darkgray;">Cor de fundo cinza</p>
+
+    <p style="color: crimson;">Cor em crimson!</p>
+
+    <p style="font-weight: bold">Texto em negrito</p>
+
+    <p style="font-style: italic;">Texto em itálico!</p>
+
+    <p style="font-family: Verdana; color:navy;">Texto verdana</p>
+
+    <p style="text-align: center">Texto no centro :)</p>
+
+    <h6>Todos os direitos reservados.®</h6>
+
+    <h2 style="color: green">Como criar um site!</h2>
+
+    <ol type="I" start="101">
+        <li>Abra o notepad</li>
+        <li>Escreva seu código HTML</li>
+        <li>Salve seu arquivo</li>
+        <li>Abra no navegador</li>
+    </ol>
+
+    <h2>Nossos Cursos</h2>
+    <ul style="list-style-type: circle;">
+        <li>HTML e CSS</li>
+        <li>Javascript</li>
+        <li>React Native</li>
+        <li>Python</li>
+    </ul>
+
+    <h2>Menu</h2>
+    <dl>
+        <dt>Pastel de carne</dt>
+        <dd>Tradicional, com cheio verde e cebola</dd>
+        <br>
+        <dt>A moda da casa</dt>
+        <dd>Presunto, queijo, carne e ovo</dd>
+    </dl>
+
+    <h2>Trabalhando com links</h2>
+    <a href="https://www.google.com" target="_blank">Google :)</a>
+    <br>
+    <a href="teste.html">Teste</a>
+    <br>
+
+    <h2>Trabalhando com imagens</h2>
+    <a href="https://www.infinityschool.com.br/" target="_blank">
+        <img src="logo.png" alt="Logo da Infinity" width="50px" height="50px" title="Logo da Infinity">
+    </a>
+
+    <h2>Trabalhando com formulários</h2>
+    <fieldset>
+        <form action="home.html" method="GET">
+            <label>Nome:</label><br>
+            <input type="text" placeholder="Insira seu nome" required name="nome" id="">
+            <br><br>
+
+            <label>Idade:</label><br>
+            <input type="number" placeholder="Apenas números" name="idade" id="">
+            <br><br>
+
+            <label>Email:</label><br>
+            <input type="email" placeholder="exemplo@123.com" name="email" id="">
+            <br><br>
+
+            <label>Senha:</label><br>
+            <input type="password" placeholder="letras e números" name="senha" id="">
+            <br><br>
+
+            <label>Turno:</label><br>
+            Manhã <input type="checkbox" name="manha" id="">
+            Tarde <input type="checkbox" name="tarde" id="">
+            Noite <input type="checkbox" name="noite" id="">
+            <br><br>
+
+            <label>Sexo</label><br>
+            Masculino <input type="radio" name="sexo" id="">
+            Feminino <input type="radio" name="sexo" id="">
+            <br><br>
+
+            <label>Selecione o seu curso:</label><br>
+            <select name="curso" id="">
+                <option disabled selected>Selecione 1</option>
+                <option value="html">HTML e CSS</option>
+                <option value="js">Javascript</option>
+                <option value="react">React Native</option>
+                <option value="python">Python</option>
+            </select>
+            <br><br>
+
+            <label">Data de Nascimento:</label><br>
+                <input type="date" name="dt_nasc" id="">
+                <br><br>
+
+                <input type="submit" value="Cadastrar" name="" id="">
+        </form>
+    </fieldset>
+
+</body>
+
+</html>
