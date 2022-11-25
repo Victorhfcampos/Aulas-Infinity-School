@@ -129,3 +129,78 @@ https://docs.google.com/presentation/d/1nlp-2Pzt4bXqfaJ_exQ3vbcr_iz0BPnC-gr4vlpe
 </body>
 
 </html>
+
+619aula2J
+
+SLIDES DA AULA
+https://drive.google.com/file/d/1lgPOMeosxzrBmIK-TaUsUAfLBCOY_ulI/view
+
+
+https://docs.google.com/presentation/d/1nlp-2Pzt4bXqfaJ_exQ3vbcr_iz0BPnC-gr4vlpeyHA/edit#slide=id.p1
+
+--------------------------------------------------------------------
+
+<html>
+
+<head>
+    <title>Revisão aula 02</title>3
+</head>
+
+<body>
+    <h1>Nossa revisão</h1>
+
+    <p>
+        Lorem ipsum dolor sit amet, <br> consectetur adipisicing elit.<br> Ratione totam ullam exercitationem nulla?<br>
+        Vitae asperiores ipsam error cupiditate. <br> Vel fugit, corrupti aperiam tenetur quisquam voluptates esse sunt
+        <br> doloremque tempora culpa
+        <!-- ALT   Z-->
+
+    </p>
+    
+    <h2>Formatação</h2>
+    <p style="background-color: darkgray;">Cor de fundo cinza</p>
+
+    <p style="color: crimson;">Cor em crimson!</p>
+
+    <p style="font-weight: bold">Texto em negrito</p>
+
+    <p style="font-style: italic;">Texto em itálico!</p>
+
+    <p style="font-family: Verdana;
+         color:navy;">Texto verdana</p>
+
+    <p style="text-align: center">Texto no centro :)</p>
+
+    <h6>Todos os direitos reservados.®</h6>
+
+    <h2 style="color: green;">Como criar um site!</h2>
+
+    <ol type="I" start="101">
+        <li>Abra o notepad.</li>
+        <li>Escreva seu código html</li>
+        <li>Salve seu arquivo</li>
+        <li>Abra no navegador</li>
+    </ol>
+
+    <h2>Nossos cursos</h2>
+    <ul style="list-style-type:square;">
+        <li>HTML e CSS</li>
+        <li>Javascript</li>
+        <li>React native</li>
+        <li>Python</li>
+    </ul><!-- ALT   SHIFT   F-->
+
+    <h2>Menu</h2>
+    <dl>
+        <dt>Pastel de carne</dt>
+        <dd>Tradicional, com cheiro verde e cebola</dd>
+
+        <dt>A moda da casa</dt>
+        <dd>Presunto, queijo, carne e ovo</dd>
+    </dl>
+
+</body>
+
+</html>
+
+<met
