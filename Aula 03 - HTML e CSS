@@ -1,0 +1,202 @@
+619aula24
+
+https://docs.google.com/presentation/d/1nlp-2Pzt4bXqfaJ_exQ3vbcr_iz0BPnC-gr4vlpeyHA/edit#slide=id.p1
+
+https://validator.w3.org/nu/#textarea
+
+------------------------------------------------------------------------------------------------------------------
+https://www.w3schools.com/html/html_form_input_types.asp
+
+-----------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aula 03</title>
+    </head>
+
+    <body>
+        
+        <form action="aula02.html" method="GET">
+            <label>Usuário: </label><br>
+            <input type="text" name="user" placeholder="Digite seu login" required><br>
+
+            <label>Senha: </label><br>
+            <input type="password"
+            name="senha"
+            placeholder="Digite sua senha" required><br>
+
+            <label>Tipo de usuário: </label><br>
+            <select name="tipo">
+                <option value="admin">Admin
+                </option>
+                <option value="prof" >Professor
+                </option>
+                <option value="aluno">Aluno
+                </option>
+            </select><br>
+
+            <input type="submit" value="Login"
+            style="background-color: navy;
+            color: white;
+            border-width: 1px;
+            border-radius: 6px;
+            font-weight: bold;">
+        </form>
+        <hr>
+        <h2>Como criar uma tabela</h2>
+        <p>Para cria uma tabela, suas tags principais são <br>
+            <b>table</b> - Descreve a criação de uma nova tabela
+
+            <br>
+            <b>tr - </b> Responsável por criar uma nova linha 
+
+            <br>
+            <b>th</b> - Para criarmos itens de cabeçalho
+
+            <br>
+            <b>td -</b> Para criar um novo item em um célula da tabela 
+        </p>
+
+        <hr>
+        <h2>Professores matriculados</h2>
+        <p>
+            Crie uma nova coluna na tabela abaixo chamada "<b>efetivo</b>"
+            <br>
+            Professores com a carga horária menor que 40 horas terão o campo preenchido com <b>não</b> <br>
+
+            E professores com carga horária maior ou igual a 40 horas serão preenchidas com <b>sim</b>
+
+            <br> Para sim - bgcolor: verde
+            <br> Para não - bgcolor: red
+        </p>
+        <table border="1">
+            <tr style="background-color:
+            lightblue;">
+                <th>Matricula</th>
+                <th>Nome</th>
+                <th>Área</th>
+                <th>Salário</th>
+                <th>Carga horária</th>
+                <th>Efetivo</th>
+            </tr>
+
+            <tr>
+                <td>0001</td>
+                <td>Arthur Bernardo</td>
+                <td>Humanas</td>
+                <td>3.500</td>
+                <td>40 horas</td>
+                <td style="background-color: green;">Sim</td>
+            </tr>
+
+            <tr>
+                <td>0002</td>
+                <td>Fátima Soáres</td>
+                <td>Exatas</td>
+                <td>3.000</td>
+                <td>30 horas</td>
+                <td style="background-color: red;">Não</td>
+            </tr>
+
+            <tr>
+                <td>0003</td>
+                <td>Luan Marques</td>
+                <td>Humanas</td>
+                <td style="font-style:italic;">2.700</td>
+                <td>26 horas</td>
+                <td style="background-color: red;">Não</td>
+            </tr>
+            <tr>
+                <td>0004</td>
+                <td>Marina Ferreira</td>
+                <td>Humanas</td>
+                <td>4.100</td>
+                <td>44 horas</td>
+                <td style="background-color: green;">Sim</td>
+            </tr>
+        </table>
+    </body>
+
+</html>
+
+--------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trabalhando com CSS</title>
+    
+        <style>
+            /*
+                General selector
+                Aplica CSS para 
+                todas as tags da páginas
+            */
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            /*
+                seletor de tags aplica
+                css em uma ou mais tags
+                selecionadas, desde que
+                as mesmas sejam separadas
+                por ponto-vírgula;
+            */
+
+            .texto-verde {
+                color: lightgreen;
+                background-color:black;
+                margin-top: 4px;
+                margin-bottom: 4px;
+            }
+
+            p, h2, h3, .texto-azul {
+                color: darkblue;
+                background-color:lightgrey;
+                max-width: max-content;
+                font-family: Tahoma;
+                font-size: 17px;
+            }
+
+            .font-verdana {
+                font-family: Verdana;
+            }
+
+            #center {
+                margin-left: 100px;
+                color: darkmagenta;
+            }
+        </style>
+    
+    </head>
+    <body>
+        <h2>Trabalhando com CSS</h2>
+        <h2>Infinity School ®</h2>
+        <h3 class="texto-verde">Vejamos exemplos :)</h3>
+
+        <p id="center">Primeiro paragrafo</p>
+        <p class="texto-verde font-verdana">Segundo paragrafo</p>
+        <p>Terceiro paragrafo</p>
+        <p class="texto-verde">Quarto paragrafo</p>
+
+        <h4 class="texto-azul">Exemplo de H4</h4>
+        <!--
+            <style>
+                (seletor - tag, id, class, atributos) {
+                    propriedade: valor;
+                    propriedade1: valor1;
+                    propriedade2: valor2;
+                } 
+            </style>
+        -->
+    </body>
+</html>
