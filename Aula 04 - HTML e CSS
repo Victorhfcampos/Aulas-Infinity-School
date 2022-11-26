@@ -1,0 +1,106 @@
+Slide da aula de hoje
+
+https://docs.google.com/presentation/d/1fgVuhqR04KMC1kcdz0wPyVibyqNXzC4MKXyWQVe4zbw/edit#slide=id.p1
+
+----------------------------------------------
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 04</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bem vindo ao nosso site</h1>
+
+    <p class="texto-vermelho texto-bold">Este é o primeiro paragrafo</p>
+    <p>Este é o segundo paragrafo</p>
+    <p class="texto-vermelho">Este é o terceiro paragrafo</p>
+    <p id="texto-navy">Este é o quarto paragrafo</p>
+    <p class="texto-vermelho">Este é o quinto paragrafo</p>
+
+    <h2>Formulário de cadastro</h2>
+    <form action="">
+        <label>Nome: </label><br>
+        <input type="text" class="texto" id=""><br><br>
+        <label">Email: </label><br>
+        <input type="email" class="texto" id=""><br><br>
+        <label>Turma: </label><br>
+        Python <input type="radio" name="turma" id="">
+        Flask <input type="radio" name="turma" id="">
+        Django <input type="radio" name="turma" id=""><br><br>
+        <label>Turno: </label><br>
+        Manhã: <input type="checkbox" name="turno" id="">
+        Tarde: <input type="checkbox" name="turno" id="">
+        Noite: <input type="checkbox" name="turno" id=""><br><br>
+
+        <input type="submit" value="Cadastrar" name="botao" class="botao">
+    </form>
+</body>
+</html>
+
+CSS:
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:ital,wght@0,400;1,700&display=swap');
+
+/*Seletor geral de elementos */
+{
+    margin: 0;
+    padding: 0;
+    /*box-sizing: border-box; */
+}
+
+p {
+    color: #384eb0;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    /*margin: 5px 0 5px 5px; acima/direita/abaixo/esquerda */
+    /* margin: 5px 0 acima-abaixo*/
+    background-color: #745c1aca; /* cor de fundo */
+    max-width: max-content; /* largura máxima do elemento */
+    border-color: black; /* cor da borda */
+    border-width: 2px; /* largura da borda */
+    border-style: solid; /*  estilo da borda (solid/dotted/dashed/etc)*/
+    border-radius: 5px; /* arredondamento das bordas (quanto maior, mais redondo) */
+    padding: 3px; /* preenchimento*/
+}
+
+.texto-vermelho {
+    background-color: bisque;
+    color: crimson;
+    border-width: 1px;
+}
+
+.texto-bold {
+    font-weight: bold;
+}
+
+.texto-navy {
+    background-color: darkgray;
+    color: navy;
+    border-width: 1px;
+}
+
+.botao {
+    background-color: #E78230;
+    color: #FFF;
+    font-weight: bold;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    padding: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+.botao:hover {
+    background-color: transparent;
+    border-color: #E78230;
+    color: #E78230;
+    box-shadow: 0px 0px 5px #E78230;
+}
