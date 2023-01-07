@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 01</title>
+    <!-- <script>
+        // > alert() -> Caixa de mensagem com botões ok e cancelar
+        alert("Olá mundo!");
+    </script> -->
+</head>
+<body>
+    
+
+    <!-- <script>
+        // > prompt() -> Caixa de alerta com um campo de entrada
+        prompt("Digite o seu nome:");
+    </script> -->
+    <!-- importando javascript externo -->
+    <script src="scripts.js"> </script>
+</body>
+</html>
+
+// Comentários
+// Trecho de código que não é interpretado
+// Caso queira que um determinado trecho de código não seja executado
+// alert("Olá mundo!");
+/* 
+Comentário
+de
+multiplas
+linhas
+*/
+
+// CTRL + ; -> comenta o texto selecionado
+// Eu
+// quero
+// comentar
+// isso
+// aqui
+
+/* Variáveis
+- Espaço reservado na memória para armazenamento de algum valor
+
+> let:
+- Variávei com let não podem ser redeclaradas
+- Podem ter o seu valor alterado
+
+> Como declarar uma variável utilizando let
+- let <nome-da-variavel> = <valor>;
+
+> const
+- Variávei com const não podem ser redeclaradas
+- Não podem ter o seu valor alterado
+
+*/
+
+// let escola = "Infinity School";
+// alert("Nome antes: " + escola);
+// // Nome antes: Infinity School
+// let avaliacao = 4.5;
+// let qtdAlunos = 1015;
+
+// // Alterando o valor de uma variável
+// escola = "Infinity School Fortaleza";
+// alert("Nome depois: " + escola);
+// // Nome depois: Infinity School Fortaleza
+
+// const pi = 3.14;
+// const tipoSanguineo = "A+";
+
+// TypeError = Não podemos alterar o valor de uma constante
+// tipoSanguineo = "O-";
+
+// let nome = "Victor";
+// alert("Nome: " + nome);
+
+// let altura = 1.71;
+// alert("Altura: " + altura);
+
+// let idade = 27;
+// alert("Idade: " + idade);
+
+
+// console.log exibe mensagens no console do navegador
+// console.log("Olá mundo!");
+// // String literals
+// console.log(`5 + 5 = ${5 + 5}`);
+// console.log(`5 - 5 = ${5 - 5}`);
+// console.log(`5 / 5 = ${5 / 5}`);
+// console.log(`5 * 5 = ${5 * 5}`);
+
+// let expoente = 3;
+// let base = 2;
+
+// console.log(`3 ^ 2 = ${base ** expoente}`);
+
+// let modulo = 5 % 3;
+// console.log(`5 % 3 = ${modulo}`);
+
+// let operacao = (modulo + base) * expoente;
+// console.log(`(2 + 2) X 3 = ${operacao}`);
+
+// Crie três variáveis, 2 com valores inteiros (o valor que você quiser) e uma com um valor real, em seguida calcule e mostre
+// > o produto do dobro do primeiro com metade do segundo .
+// > a soma do triplo do primeiro com o terceiro.
+// > o terceiro elevado ao cubo.
+
+// let primeiro = 10;
+// let segundo = 5;
+// let terceiro = 3.5;
+
+// let resultado1 = (primeiro * 2) * (segundo / 2);
+// console.log(`Primeira questão: ${resultado1}`);
+
+// let resultado2 = (primeiro * 3) + terceiro;
+// console.log(`Segunda questão: ${resultado2}`);
+
+// let resultado3 = terceiro ** 3; 
+// console.log(`Terceira questão: ${resultado3}`);
+
+// console.log(typeof "5"); //string
+// console.log(typeof 5); //number
+// //typeof exibe o tipo do valor
+// //pegando o valor digitado e armazenando em uma variável
+// // let valor = prompt("Digite um valor:");
+// // alert(typeof valor);
+
+// let resultado = "5" + "5";
+// alert(resultado);
+
+/*
+Booleanos (lógicos)
+- True/false
+
+--------------
+Entrada de dados e covnersão de tipos
+> Utilizamos o comando prompt() para recebermos dados digitados pelos usuários
+
+> Como converter um dado
+Number(<valor>);
+*/
+
+// let valor1 = prompt("Digite o primeiro valor: ");
+// valor1 = Number(valor1);
+// // Convertendo o valor1 para Number
+
+// let valor2 = Number(prompt("Digite o segundo valor: "));
+// let resultado = valor1 + valor2;
+// alert(resultado);
+
+// 1. Utilize prompt() para ler dois valores, em seguida realize o produto (multiplicação) dos dois e exiba no alert()
+
+// 2. Utilize prompt para ler 3 notas, em seguida calcule a média e exiba no alert()
+
+// 3. Utilize prompt para ler o valor do lado de um quadrado, em seguida calcule sua área e a exiba no alert()
+// OBS: area = lado * lado
+
+// 4. Leia o peso e a altura de um usuário (utilize prompt()), calcule seu IMC e o exiba utilizando alert()
+// IMC = peso / (altura ** 2)
+
+
+//1.
+// let valor1 = Number(prompt("Digite o primeiro valor: "));
+// let valor2 = Number(prompt("Digite o segundo valor: "));
+// let produto = valor1 * valor2;
+// alert("O produto dos dois valores é: " + produto);
+// console.log(produto);
+
+// //2.
+// let nota1 = Number(prompt("Digite a primeira nota: "));
+// let nota2 = Number(prompt("Digite a segunda nota: "));
+// let nota3 = Number(prompt("Digite a terceira nota: "));
+// let media = (nota1 + nota2 + nota3) / 3;
+// alert("A média das três notas é: " + media);
+// console.log(media);
+
+// //3.
+// let lado = Number(prompt("Digite o valor do lado de um quadrado: "))
+// let area = lado * lado;
+// alert("A área do quadrado é: " + area);
+// console.log(area);
+
+// //4.
+// let altura = Number(prompt("Digite a sua altura: "));
+// let peso = Number(prompt("Digite o seu peso: "));
+// let imc = peso / (altura * altura);
+// alert(imc.toFixed(2));
