@@ -1,0 +1,61 @@
+/* 
+Tipos de dados
+> Strings
+- Qualquer texto dentro de aspas
+
+> Numbers
+- Inteiros
+- Reais
+
+> Booleanos (boolean)
+- True/False
+
+> Entrada e saída de dados
+- alert("<msg>")
+- prompt("<msg>")
+
+> Como converter um valor para Number
+let valor = Number(prompt("<msg>"))
+
+*/
+
+// let nome = prompt("Digite o seu nome: ");
+// let nota1 = Number(prompt("Digite sua primeira nota: "));
+// let nota2 = Number(prompt("Digite sua segunda nota: "));
+
+// const media = (nota1 + nota2) / 2;
+
+// alert(`O Aluno: ${nome}, obteve média = ${media}`);
+
+// 1. Média ponderada. Leia 3 notas, nota1, nota2, nota3. E calcule sua média ponderada. Onde a primeira nota tem peso 3, a segunda tem peso 5 e a terceira tem peso 7.
+// media (nota1 * 3 + nota2 * 5 + nota3 * 7) / (3 + 5 + 7)
+
+// 2. Leia o nome de um funcionário, o seu salário e seu total de vendas. Em seguida adicione ao salário do funcionário 20% das vendas. Ao final exiba, o nome do funcionário e o salário
+// exemplo de entrada
+// francisco 1000 100 ----> Francisco salario com aumento = 1020
+
+// 3. Leia o raio de um circulo e calcule a área dessa esfera
+// Area = 4/3 * pi * raio³
+// Ao final exiba a área 
+
+// let nota1 = Number(prompt("Digite sua primeira nota: "));
+// let nota2 = Number(prompt("Digite sua segunda nota: "));
+// let nota3 = Number(prompt("Digite sua terceira nota: "));
+
+
+//media = (nota1 * 3 + nota2 * 5 + nota3 * 7 / (3 + 5 + 7);
+
+// alert(`A média das 3 notas é = ${media}`);
+
+// let nome = prompt("Digite o seu nome: ");
+// let salario = Number(prompt("Digite o seu salário: "));
+// let vendas = Number(prompt("Quantas vendas você realizou: "));
+
+// salario = salario + (vendas * 0.2);
+
+// alert(`O salário de ${nome} com aumento é ${media}`);
+
+// let raio = Number(prompt("Digite o raio do círculo: "))
+// let esfera = 4 / 3 * 3.14 * raio ** 3;
+
+// alert(`Área da esfera = ${esfera.toFixed(2)}`);
