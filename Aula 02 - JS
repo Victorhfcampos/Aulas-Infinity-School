@@ -59,3 +59,89 @@ let valor = Number(prompt("<msg>"))
 // let esfera = 4 / 3 * 3.14 * raio ** 3;
 
 // alert(`Área da esfera = ${esfera.toFixed(2)}`);
+
+/*
+> Operadores relacionais 
+maior que >
+menor que <
+maior ou igual a >=
+menor ou igual a <=
+diferente !=
+igual == 
+
+diferença estrita !==
+igualdade estrita ===
+
+*/
+console.log(`5 > 5? ${5 > 5}`); //false
+console.log(`5 < 5? ${5 < 5}`); //false
+console.log(`5 >= 5 ${5 >= 5}`); //true
+console.log(`5 <= 5? ${5 <= 5}`); // true
+console.log(`5 != 5? ${5 != 5}`); //false
+console.log(`5 == 5? ${5 == '5'}`); //true
+console.log(`5 === '5'? ${5 === '5'}`); //false
+console.log(`5 !== '5'? ${5 !== '5'}`); // true
+
+/*
+Operadores lógicos
+- Comparam operações relacionais
+&& -> AND ou E lógico
+-> Só da true se todas as expressões forem
+verdadeiras
+
+|| -> OR ou OU lógico
+-> Só da false se todas as expressões forem falsas
+
+! -> NOT ou NÃO lógico
+-> Inverte o valor, se true -> false
+se false -> true
+
+!true => false
+!false => true
+
+*/
+// a = 3
+// b = 5
+// c = 10
+// a > -1 + 2 && b <= c
+// let login = prompt('Digite o seu login:');
+// let senha = prompt('Digite sua senha: ');
+// alert(`Resultado = ${login == 'admin' && senha == '123'}`);
+
+// I - idoso, E - estudante, P - professor
+// let categoria = prompt('Informe sua categoria: ');
+// alert(`Meia entrada? ${categoria == 'I' || categoria == 'E' || categoria == 'P'}`);
+
+let escola = prompt('Digite o nome da escola: ');
+alert(`É a melhor escola? ${!(escola != 'infinity')}`);
+
+// a = 5
+// b = 3
+// c = 15
+// !(!(a > 5) && (b != 2 + 1) && (a + b > c || c == 15))
+
+---------------------------------------------
+
+/*
+Estruturas condicionais
+- Podem alterar o fluxo do programa de acordo
+com uma determinada condição
+
+Condicionais simples
+if (<condicao>) {
+    <codigo>
+}
+
+*/
+
+let nota = Number(prompt('Digite a sua nota: '));
+let qtdFaltas = Number(prompt('Informe o número de faltas: '));
+
+if (qtdFaltas < 5) {
+    nota = nota + 1;
+    // nota += 1;
+    // nota++;
+    alert("Oba, você ganhou 1pt extra!");
+}
+
+alert(`Sua nota final = ${nota}`);
