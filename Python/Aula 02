@@ -1,1 +1,163 @@
+Atividade 01
+#print(pow(2,2))
+"""Peça um número (inteiro) ao usuário e mostre o resultado dele elevado ao CUBO."""
 
+numero = int(input("Digite um número"))
+
+print(numero**3)
+print(pow(numero, 3))
+
+Atividade 02
+numero = 1.51
+print(round(numero))
+
+numero = 1.51
+
+import math
+print(math.floor(numero))
+print(math.ceil(numero))
+
+from math import floor
+print(floor(numero))
+
+nome = input("Digite o seu nome em MAIÚSCULO:")
+print(nome.lower())
+
+nome = "VICTOR"
+print(nome.lower())
+
+nome = input("Digite o seu nome em minúsculo:")
+print(nome.upper())
+
+nome2 = "victor"
+print(nome2.upper())
+
+DETALHE para a primeira letra em maiúscula
+nome = input("Digite o seu nome:").title()
+print(nome)
+
+numero = int(input("Digite um número INTEIRO NEGATIVO:"))
+print(abs(numero))
+
+numero1 = int(input("Digite o primeiro número:"))
+numero2= int(input("Digite o primeiro número:"))
+
+soma = numero1 + numero2
+print(soma)
+
+print(f"A soma de {numero1} + {numero2} é {soma}")
+
+num1 = 2.84743
+print(f"A soma dos dois números é: {num1:.2f}")
+print(round(num1, 3))
+
+ATIVIDADE 03
+print(11<2)
+print(10<15)
+print(10<8 and 20<2)
+#ou print(("a" == "b") and (2>5))
+print(1<10 or 2<1)
+
+numero = 4
+if numero > 2:
+    print("este número é maior do que dois!")
+else:
+    print("este número não é maior do que dois!")
+ 
+numero = -12
+if numero <3:
+    print("este número é negativo")
+else:
+    print("este número é positivo")
+
+numero = int(input("Digite um número:"))
+if numero > 0:
+    print("Este número é positivo")
+else:
+    print("Este número é negativo")
+    
+numero = int(input("Digite um número:"))
+if numero > 0:
+    print("Este número é positivo")
+elif numero < 0:
+    print("Este número é negativo")
+else:
+    print("Voce digitou zero")
+
+velocidade = int(input("Informe a velocidade do motorista:"))
+if velocidade <= 60:
+    print("Velocidade permitida")
+elif (velocidade >= 60) and (velocidade <= 80):
+    print("Alta velocidade")
+elif (velocidade >= 80) and (velocidade <= 120):
+    print("Muito rapido")
+else:
+    print("VUADO")
+    
+Atividade 06
+peso = float(input("Qual o seu peso?"))
+altura = float(input("Qual a sua altura?"))
+
+imc = peso / (altura**2)
+
+if imc < 18.5:
+    print("Você está abaixo do peso")
+elif (imc >=18.5) and (imc <=24.9):
+    print("Seu peso está normal")
+elif (imc >24.9) and (imc <=29.9):
+    print("Você está com sobrepeso")
+elif (imc >29.9) and (imc <=39.9):
+    print("Você está com obesidade tipo I")
+else:
+    print("Alerta: você está com obesidade mórbida")
+
+Atividade 07
+numero_secreto = 27
+
+palpite = int(input("Digite o seu palpite:"))
+
+if palpite < numero_secreto:
+    print("Seu palpite é menor que o número secreto!")
+elif palpite > numero_secreto:
+    print("Seu palpite é maior que o número secreto!")
+else:
+    print("Parabéns, você acertou!")
+    
+  temperatura = float(input("Digite a temperatura do paciente:"))
+
+Atividade 08
+if temperatura <=37:
+    print("Você está com temperatura normal")
+elif (temperatura >37) and (temperatura <=37.8):
+    print("Você está febril")
+elif (temperatura >37.8) and (temperatura <=38.5):
+    print("Você está com febre leve")
+elif (temperatura >38.5) and (temperatura <=39.4):
+    print("Você está com febre moderada")
+else:
+    print("Você está com febre grave!")
+
+Atividade Monitor
+usuario = input("Informe o usuário:"))
+senha = input("Insira a senha:"))
+
+if usuario.upper() == "INFINITY" and senha == "school":
+    print("LOGIN REALIZADO")
+else:
+    print("ACESSO NEGADO")
+
+Atividade 11
+nome = input("Qual o nome do aluno:")
+nota1 = float(input("Qual a nota 1?"))
+nota2 = float(input("Qual a nota 2?"))
+
+media = (nota1 + nota2) / 2
+
+if media > 7.0:
+    print(f"O aluno(a) {nome} teve a média {media:.2f} e foi aprovado com conceito A")
+elif media >= 5.0 and media <=7.0:
+    print(f"O aluno(a) {nome} teve a média {media:.2f} e foi aprovado com conceito B")
+elif media >= 4.0 and media < 5.0:
+    print(f"O aluno(a) {nome} teve a média {media:.2f} e fará avaliação final")
+else:
+    print(f"O aluno(a) {nome} teve a média {media:.2f} e infelizmente foi reprovado :(")
