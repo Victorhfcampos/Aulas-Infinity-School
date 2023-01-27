@@ -1,0 +1,77 @@
+https://docs.google.com/presentation/d/1WdnMaBoOS9uODbMS-4dZj3ot517OGRJi84kA9JiywyM/edit#slide=id.p1
+
+----------------------------------------------------------------
+
+// Receba um valor e informe quantas notas de 
+// 100, 50, 20, 5, 2, 1 são necessárias para gerar esse valor
+// 1354
+// 13 notas de 100
+// 1 nota de 50
+// 0 notas de 20
+// 0 notas de 10
+// 0 notas de 5
+// 2 notas de 2
+// 0 notas de 1
+// Math.floor()
+
+// Lendo valor
+let valor = Number(prompt('Digite o valor: '));
+// Declarando variáveis para armazenar a quantidade
+// de cédulas de cada valor.
+let c100;
+let c50;
+let c20;
+let c10;
+let c5;
+let c2;
+let c1;
+
+c100 = Math.floor(valor / 100);
+// alterando a variavel valor, para ficar apenas com o resto
+valor = valor % 100;
+
+c50 = Math.floor(valor / 50);
+valor = valor % 50;
+
+c20 = Math.floor(valor / 20);
+valor = valor % 20;
+
+c10 = Math.floor(valor / 10);
+valor = valor % 10;
+
+c5 = Math.floor(valor / 5);
+valor = valor % 5;
+
+c2 = Math.floor(valor / 2);
+valor = valor % 2;
+
+console.log(`${c100} nota(s) de R$ 100,00`);
+console.log(`${c50} nota(s) de R$ 50,00`);
+console.log(`${c20} nota(s) de R$ 20,00`);
+console.log(`${c10} nota(s) de R$ 10,00`);
+console.log(`${c5} nota(s) de R$ 5,00`);
+console.log(`${c2} nota(s) de R$ 2,00`);
+console.log(`${valor} nota(s) de R$ 1,00`);
+
+-----------------------------------------------------------------------------
+
+let nota1 = Number(prompt('Digite a primeira nota: '));
+let nota2 = Number(prompt('Digite a segunda nota: '));
+let media = (nota1 + nota2) / 2;
+
+if (media >= 6) {
+    alert('Você está aprovado!');
+}
+else {
+    alert('Você está de recuperação!');
+}
+-------------------------------------------------------------------------------
+
+1. Leia os valores de a, b, c. E descubra o valor de delta. E em seguida calcule as duas raizes de x, que chamaremos de x1 e x2.
+Informe os valores de x1 e x2 se possível (delta >= 0 e a != 0). SE não for possível, informe uma mensagem dizendo "impossível de calcular"
+
+delta = b ** 2 - 4 * a * c
+
+x1 = -b + Math.sqrt(delta) / 2 * a
+x2 = -b - Math.sqrt(delta) / 2 * a
+
