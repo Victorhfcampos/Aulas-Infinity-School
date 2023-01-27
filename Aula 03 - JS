@@ -1,0 +1,201 @@
+619aula29
+
+https://docs.google.com/presentation/d/1WdnMaBoOS9uODbMS-4dZj3ot517OGRJi84kA9JiywyM/edit#slide=id.p1
+
+-----------------------------------------------------------------------
+
+// let nome = 'Carlos';
+// nome = 'Miguel';
+// let idade = 25;
+// let habilitado = true;
+// const pi = 3.1415;
+
+// let escola = prompt("Digite o nome da escola: ");
+// let qtdAlunos = Number(prompt('Digite o número de alunos: '));
+
+// alert(`Nome da escola ${escola}`);
+// alert(`Quantidade de alunos: ${qtdAlunos}`);
+
+/*
+Operadores aritméticos
+Soma + 
+Subtração -
+Multiplicação *
+Divisão /
+Potenciação **
+Módulo (resto) %
+Precedência de operação ()
+*/
+
+// 1. Leia a altura de uma pessoa e dada essa altura, informe qual deveria ser o seu peso ideal
+// Peso ideal = altura - 100 - ((altura - 150) / 4)
+let altura = Number(prompt('Digite a sua altura: '));
+let pesoIdeal = altura - 100 - ((altura - 150) / 4);
+alert(`PESO IDEAL = ${pesoIdeal}`);
+-------------------------------------------------------------------------------
+// 2. Leia uma temperatura em celsius e a converta para fahrenheit
+// F = (c × 9/5) + 32 
+let C = Number(prompt('Digite a temperatura em C°:'));
+let F = (C * 9/5) + 32;
+alert(`Temperatura em ${F}F°`);
+----------------------------------------------------------------------------------
+// 3. Leia a altura em metros de um usuário e a converta para pés.
+// ft = altura * 3.281
+let altura = Number(prompt('Digite sua altura em metros:'))
+let ft = altura * 3.281;
+alert(`Sua altura em pés = ${ft}`);
+--------------------------------------------------------------------------------------------
+DESAFIO
+4. Leia um valor inteiro e informe a quantidade de notas de 100, 50, 20, 10, 5, 2, 1 necessárias para produzir este valor.
+Ex: 1257.
+12 notas de 100
+1 nota de 50
+1 nota de 20
+0 notas de 10
+1 nota de 5
+1 nota de 2
+0 notas de 1
+
+
+Math.floor(valor /100)
+
+-------------------------------------------------------
+
+/*
+Operadores relacionais
+
+Testam dois operandos e retorna um valor 
+booleano => true/false
+Maior que >
+Menor que <
+Maior ou igual >=
+Menor ou igual <=
+Diferente !=
+Igual ==
+Diferença estrita !==
+Igualdade estrita ===
+
+
+Operadores lógicos
+- Testam duas ou mais expressões relacionais
+- Resultado também é um booleano
+
+&& E lógico
+> Só retorna true se todas as expressões forem true
+|| OU lógico
+> Só retorna false se todas as expressões forem falsas
+! negação lógica
+> Inverte o resultado
+> !true = false
+> !false = true
+*/
+// console.log(`5 > 5? ${5 > 5}`);
+// console.log(`5 < 5? ${5 < 5}`);
+// console.log(`5 >= 5? ${5 >= 5}`);
+// console.log(`5 <= 5? ${5 <= 5}`);
+// console.log(`5 != 5? ${5 != 5}`);
+// console.log(`5 == 5? ${5 == '5'}`);
+// console.log(`5 !== 5? ${5 !== '5'}`);
+// console.log(`5 === 5? ${5 === '5'}`);
+
+// let user = prompt('Digite seu usuário: ');
+// let senha = prompt('Digite a sua senha: ');
+// let autenticado = (user == 'admin') && (senha == '123');
+// alert(`Autenticado? ${autenticado}`);
+
+
+// cat = E - estudante, P - professor, I - idoso
+// let cat = prompt('Digite sua categoria: \n E - Estudante \n P - Professor \n I - Idoso');
+// let meia = (cat == 'P') || (cat == 'E') || (cat == 'I');
+// alert(`Tem direito a meia? ${meia}`);
+
+a = 10
+b = 15
+c = 5
+r = !((a > 7- 2) || ((b - 3 == 12) && (b % 2 != 1)) && (c == 2.5 * 2))
+
+-----------------------------------------------------------------------------------
+
+/*
+Condicional simples
+Testa-se uma condição
+caso ela seja verdadeira algum código será executado
+
+
+
+> Um aluno ao realizar uma prova obtem sua nota, porém
+se o seu número de faltas for abaixo de 5, o aluno pode ganhar um ponto a mais na sua nota
+
+
+if (<condição>) {
+    <código>
+}
+*/
+
+
+let nota = Number(prompt('Digite a sua nota: '));
+let faltas = Number(prompt('Digite o total de faltas: '));
+
+if (faltas < 5) {
+    nota = nota + 1;
+    // nota += 1;
+    // nota++;
+    alert("Eba!! Você ganhou 1pt extra!");
+}
+
+alert(`SUA NOTA FINAL = ${nota}`);
+
+----------------------------------------------------------------------------
+
+let idade = Number(prompt('Digite a sua idade: '));
+
+if (idade >= 18) {
+    alert('Você é maior de idade!');
+}
+else {
+    alert("Você NÃO é maior de idade!!");
+}
+
+----------------------------------------------------------------------------
+
+
+1. Leia o salário e o total de vendas de um funcionário
+Se o total de vendas for entre 10000 e 30000 acrescente 30% das vendas ao salário
+E exiba o salário na tela. 
+
+let salario = Number(prompt('Digite o seu salário: '));
+let vendas = Number(prompt('Digite o total das vendas: '));
+
+if (vendas >= 10000 && vendas <= 30000) {
+    salario = salario + (vendas * 0.3);
+    alert('Você ganhou comissão!!!!!');
+}
+alert(`SALÁRIO FINAL = ${salario}`);
+
+-----------------------------------------------------------------------------
+
+Leia 3 notas, calcule a sua média. E se a média for maior ou igual a 6, exiba uma mensagem "Você está aprovado" Se não, exiba uma mensagem "Você está de recuperação". 
+
+let nota1 = Number(prompt('Digite a primeira nota: '));
+let nota2 = Number(prompt('Digite a segunda nota: '));
+let nota3 = Number(prompt('Digite a terceira nota: '));
+const media = (nota1 + nota2 + nota3) / 3;
+if (media >= 6) {
+    alert('Você está aprovado!');
+}
+else {
+    alert('Você está de recuperação!');
+}
+-------------------------------------------------------------------------------------------------
+
+1. Leia um número e informe se ele é positivo ou negativo 
+
+let numero = Number(prompt('Digite um número: '));
+if (numero > 0) {
+    alert('Este número é positivo!');
+} 
+else {
+    alert('Este número é negativo!');
+}
+
+------------------------------------------------------
