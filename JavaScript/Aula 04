@@ -75,3 +75,94 @@ delta = b ** 2 - 4 * a * c
 x1 = -b + Math.sqrt(delta) / 2 * a
 x2 = -b - Math.sqrt(delta) / 2 * a
 
+let a = Number(prompt('Digite o valor a: '));
+let b = Number(prompt('Digite o valor b: '));
+let c = Number(prompt('Digite o valor c: '));
+
+let delta = b ** 2 - 4 * a * c;
+
+if (delta >= 0 && a != 0) {
+    let x1 = (-1 * b) + (Math.sqrt(delta) / (2 * a));
+    let x2 = (-1 * b) - (Math.sqrt(delta) / (2 * a));
+    alert(`Valor de x1 = ${x1} \n Valor de x2 = ${x2}`);
+}
+else {
+    alert("Impossível calcular!");
+}
+-------------------------------------------------------------------------
+
+// Leia quatro valores inteiros, A, B, C e D. E se B for maior que C e D for maior que A.
+E se a soma de C e D for maior que a soma de A e B e se C e D forem positivos.
+E se A for par. Escreva a mensagem "valores aceitos".
+Se não escreva a mensagem "Valores não aceitos"
+
+
+let a = Number(prompt('Digite o valor de A: '));
+let b = Number(prompt('Digite o valor de B: '));
+let c = Number(prompt('Digite o valor de C: '));
+let d = Number(prompt('Digite o valor de D: '));
+
+if ((b > c && d > a) && (c + d > a + b) && (c > 0) && (d > 0) && (a % 2 == 0)){
+    alert('Valores aceitos!');
+}
+else {
+    alert('Valores não aceitos!');
+}
+
+--------------------------------------------------------------------------------
+
+let opcao = Number(prompt('Escolha sua opção: \n 1 - Cadastrar \n 2 - Editar \n 3 - Excluir \n 4 - Sair'));
+
+if (opcao == 1) {
+    alert('Opções de cadastro');
+}
+else if (opcao == 2) {
+    alert('Opções de edição');
+}
+else if (opcao == 3) {
+    alert('Opções de exclusão');
+}
+else if (opcao == 4) {
+    alert('Você saiu do programa!');
+}
+else {
+    alert('Opções inválida!');
+}
+
+----------------------------------------------------------------------
+1. Leia um número e informe se ele está no intervalo de 
+0 a 25
+26 a 50
+51 a 75
+76 a 100
+ou se ele está fora do intervalo
+
+----------------------------------------------------
+
+O IMC – Índice de Massa Corporal é um critério da Organização Mundial de Saúde para dar uma indicação sobre a condição de peso de uma pessoa adulta. 
+A fórmula é IMC = peso / altura ²
+Elabore um algoritmo que leia o peso e a altura de um adulto e mostre sua condição de acordo com a tabela abaixo.
+ 
+IMC em adultos Condição 
+Abaixo de 18,5 Abaixo do peso 
+Entre 18,5 e 25 Peso normal 
+Entre 25 e 30 Acima do peso 
+Acima de 30 obeso
+
+--------------------------------------------------
+1. Leia o numero de ddd e informe a cidade
+
+85 fortaleza
+11 sao paulo
+21 rio de janeiro
+71 - salvador
+61 - brasilia
+outro valor = "ddd não encontrado"
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+Leia tres lados de um triangulo, e informe se ele é um triangulo
+isoceles ( 2 lados iguais)
+equilatero (3 lados iguais)
+escaleno (todos diferentes)
