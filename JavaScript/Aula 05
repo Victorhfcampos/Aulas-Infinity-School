@@ -1,0 +1,151 @@
+619aula31
+
+https://docs.google.com/presentation/d/1eFJbE2xDkg6BkKDk9-4O9Z8cJ2IaVzFCHqrYTiglFQ8/edit
+
+----------------------------------------------------------------
+
+let peso = Number(prompt('Digite o seu peso: '));
+let altura = Number(prompt('Digite a sua altura: '));
+let imc = peso / altura ** 2;
+
+if (imc < 18.5) {
+    alert('IMC abaixo do peso!');
+}
+else if (imc >= 18.5 && imc < 25) {
+    alert('Peso normal!');
+}
+else if (imc >= 25 && imc < 30) {
+    alert('IMC acima do peso!');
+}
+else {
+    alert('Obesidade');
+}
+------------------------------------------------------------------------------
+
+1. Leia o tipo de um animal
+> cachorro (mamifero domestico)
+> gato (mamifero domestico)
+> passaro (Ave)
+> peixe (Aquatico)
+> Outra coisa (Não classificado)
+
+------------------------------------------------------------------
+
+let contador = 0; 
+
+while (contador < 10) { // 0 1 2 3 4 5->false
+    console.log(contador); // 0 1 2 3 4
+    contador++; // 1 2 3 4 5
+    // i = i + 1 ou i += 1
+}
+console.log('Saimos do while!')
+--------------------------------------------------------
+
+let contador = 0;
+
+while (contador < 10) {
+    let nota = prompt('Digite a nota: ');
+    contador++;
+}
+-------------------------------------------------------
+
+1. Imprima 10 vezes a mensagem "hello world" no console
+let contador = 0;
+
+while (contador < 10) {
+    console.log("hello world");
+    contador++;
+}
+
+2. Imprima uma sequencia de 0 a 10 no console.
+let contador = 0;
+while (contador <= 10) {
+    console.log(contador);
+    contador++
+}
+
+
+3. Imprima uma sequencia de 10 a 0 no console.
+let contador = 10;
+while (contador >= 0) {
+    console.log(contador);
+    contador--; // decremento
+}
+
+--------------------------------------------------------------
+
+
+4. Imprima uma sequencia de 0 até um número digitado pelo usuário
+let contador = 0;
+let numero = Number(prompt('Digite um número: '));
+while (contador <= numero) {
+    console.log(contador);
+    contador++;
+    
+}
+-----------------------------------------------------------------
+
+5. Imprima todos os números pares de 0 a 100. 
+
+let contador = 0;
+
+while (contador <= 100) {
+    if (contador % 2 == 0) {
+        console.log(contador);
+    }
+    contador++;
+}
+-------------------------------------------------------------------------
+
+6. Desafio. Imprima a seguinte sequencia
+I = 1 J = 60
+I = 4 J = 55
+I = 7 J = 50
+...
+...
+I = ? J = 0
+
+------------------------------------------------------------------
+
+let contador = 0;
+let acumulador = 0;
+while (contador < 3) {
+    let preco = Number(prompt('Digite o preço do produto'));
+    acumulador = acumulador + preco; // 5 10 15 = 30 
+    contador++;
+}
+
+alert(`TOTAL = R$${acumulador}`)
+
+=================================================
+1. Leia 4 notas (utilize laço de repetição) em seguida calcule a média 
+
+let contador = 0;
+let acumulador = 0;
+
+while (contador < 4) {
+    let nota = Number(prompt('Digite sua nota: '));
+    acumulador = acumulador + nota;
+    //acumulador += nota
+    contador++
+}
+
+let media = acumulador / contador;
+alert(`MÉDIA = ${media.toFixed(1)}`);
+
+-----------------------------------------------------------------------------
+
+1. Leia o preço de compra de cinco cliente da loja A e verifique se esse faturamento foi superior ao da loja B (faturamento 54000).
+Caso o faturamento da loja A seja superior. Informe em quanto esse faturamento.
+loja A = 60000
+Superou em 6000
+
+---------------------------------------------------------------------------------
+https://www.invertexto.com/619aula31#
+2. Leia um número e imprima a tabuada deste número: 
+ex: 
+5 
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5
