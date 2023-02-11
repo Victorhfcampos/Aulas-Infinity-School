@@ -20,83 +20,107 @@ for(let i = 1; i <= 10; i++) {
     console.log(`${num} X ${i} = ${num * i}`);
 }
 
-1. Imprima a mensagem "hello world" 10 vezes no console.
-2. Imprima uma sequencia de 0 a 100
-3. Imprima uma sequencia de 100 a 0
-4. Imprima uma sequencia de 0 ao número digitado pelo usuário
-5. Imprima todos os números pares entre 0 e 100.
-6. Imprima todos os números pares entre 0 e o número digitado pelo usuário
-
 // 1. Imprima a mensagem "hello world" 10 vezes no console.
+for (let i = 0; i < 10; i++) {
+    console.log("Hello World!")
+}
 // 2. Imprima uma sequencia de 0 a 100
+for (let i = 0; i <= 100; i++) {
+    console.log(i)
+}
 // 3. Imprima uma sequencia de 100 a 0
+for (let i = 100; i >= 0; i--) {
+    console.log(i)
+}
 // 4. Imprima uma sequencia de 0 ao número digitado pelo usuário
+let num = Number(prompt('Digite um número: '));
+for (let i = 0; i <= num; i++) {
+    console.log(i)
+}
 // 5. Imprima todos os números pares entre 0 e 100.
+for (let i = 0; i <= 100; i++) {
+    if (i % 2 == 0) {
+        console.log(i)
+    }
+}
 // 6. Imprima todos os números pares entre 0 e o número digitado pelo usuário 
-
-// let contador = 0;
-
-// 1.
-// while (contador < 10) {
-//     console.log("hello world");
-//     contador++;
-// }
-
-// 2.
-// let contador = 0;
-// while (contador <= 100) {
-//     console.log(contador);
-//     contador++
-// }
-
-// 3.
-// let contador = 100;
-// while (contador >= 0) {
-//     console.log(contador);
-//     contador--;
-// }
-
-// 4.
-// let contador = 0;
-// let numero = Number(prompt('Digite um número: '));
-// while (contador <= numero) {
-//     console.log(contador);
-//     contador++;   
-// }
-
-// 5.
-// let contador = 0;
-// while (contador <= 100) {
-//     if (contador % 2 == 0) {
-//         console.log(contador);
-//     }
-//     contador++;
-// }
-
-// 6.
-// let contador = 0;
-// let numero = Number(prompt('Digite um número: '));
-// while (contador <= numero) {
-//     if (contador % 2 == 0) {
-//         console.log(contador);
-//     }
-//     contador++;
-// }
-
-1. Leia 4 notas, calcule a média e exiba para o usuário.
-let contador = 0;
-let acumulador = 0;
-
-while (contador < 4) {
-    let nota = Number(prompt('Digite sua nota: '));
-    acumulador += nota
-    contador++
+let num1 = Number(prompt('Digite um número: '));
+for (let i = 0; i <= num1; i++) {
+    if (i % 2 == 0) {
+        console.log(i)
+    }
 }
 
-let media = acumulador / contador;
-alert(`MÉDIA = ${media}`);
+// 1. Leia 4 notas, calcule a média e exiba para o usuário.
+let acumulador = 0;
+for (let i = 0; i < 4; i++) {
+    let nota = Number(prompt('Digite uma nota: '));
+    // Adicionando a nota dentro do acumulador
+    acumulador = acumulador + nota; 
+}
+let media = acumulador / 4;
+alert(`Média = ${media}`);
+
+// 2. Leia N notas, calcule a média e exiba para o usuário.
+let qtdNotas = Number(prompt('Informe quantas notas você deseja digitar: '))
+let acumulador = 0;
+for (let i = 0; i < qtdNotas; i++) {
+    let nota = Number(prompt('Digite uma nota: '));
+    // Adicionando a nota dentro do acumulador
+    acumulador = acumulador + nota; 
+}
+let media = acumulador / qtdNotas;
+alert(`Média = ${media}`);
+
+// 3. Leia um número e exiba a soma de todos os inteiros até este número. 
+// Ex: 5 -----> 15 = 1+2+3+4+5
+// let num = Number(prompt("Digite o número: "));
+// let acumulador = 0;
+// for (let i = 0; i <= num; i++){
+//     acumulador = acumulador + i;
+// }
+// alert(`Resultado = ${acumulador}`);
 
 
+// 4. Leia um número e informe o fatorial deste número. 
+// Ex: 5 ------> 120 = 1x2x3x4x5 
+// let num = Number(prompt("Digite o número: "));
+// let acumulador = 01
+// for (let i = 1; i <= num; i++){
+//     acumulador = acumulador * i;
+// }
+// alert(`Resultado = ${acumulador}`);
 
+// Desafio. Leia um número e informe se ele é ou não um número primo.
+// let num = Number(prompt('Digite um número: '));
+// let qtdDivisiveis = 0;
+// for (let i = 1; i <= num; i++) {
+//     if (num % i == 0) {
+//         qtdDivisiveis++
+//     }
+// }
 
+// if (qtdDivisiveis > 2) {
+//     alert('Este número não é primo');
+// }
+// else {
+//     alert('Este número é primo');
+// }
 
+2. Imprima a seguinte sequencia.
+I = 1 J = 7
+I = 1 J = 6
+I = 1 J = 5
+I = 3 J = 7
+I = 3 J = 6
+I = 3 J = 5
+...
+I = 9 J = 7
+I = 9 J = 6
+I = 9 J = 5
+
+// for (let i = 1; i <= 9; i+=2) {
+//     for (let j = 7; j >= 5; j--) {
+//         console.log(`I = ${i} | J = ${j}`);
+//     }
+// }
