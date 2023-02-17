@@ -1,0 +1,70 @@
+// function escrevendoConsole(){
+//     console.log('escrevendo no console')
+// }
+
+// escrevendoConsole()
+// escrevendoConsole()
+// escrevendoConsole()
+// escrevendoConsole()
+
+// function soma(valor1, valor2){
+//     console.log(valor1 + valor2)
+// }
+
+// soma(2,2)
+
+// Escreva uma função que lê dois números e informa a soma dos dois
+// Escreva uma função que lê dois números e informe qual é o maior ou se eles são iguais
+// Escreva uma função que lê um número e informa se ele é par ou ímpar
+// Escreva uma função que lê o salário de um funcionário e informa o mesmo salário com um aumento de 15%
+// Escreva uma função que imprima todos os números 
+// inteiros de 0 a 100.
+
+// function soma(){
+//     let valor1 = Number(prompt('Digite o primeiro número: '));
+//     let valor2 = Number(prompt('Digite o segundo número: '));
+//     let resultado = valor1 + valor2;
+//     console.log(resultado);
+// }
+// soma();
+
+// function maiorMenor(){
+//     let valor1 = Number(prompt('Digite o primeiro número: '));
+//     let valor2 = Number(prompt('Digite o segundo número: '));
+//     if (valor1 > valor2) {
+//         console.log(valor1);
+//     }
+//     else if (valor1 < valor2) {
+//         console.log(valor2);
+//     }
+//     else {
+//         console.log('Valores iguais');
+//     }
+// }
+// maiorMenor();
+
+// function parOuImpar() {
+//     let numero = Number(prompt('Digite um número: '));
+//     if (numero % 2 == 0) {
+//         console.log("Par");
+//     }
+//     else {
+//         console.log("Impar");
+//     }
+// }
+
+// parOuImpar();
+
+// function aumentarSalario() {
+//     let salario = Number(prompt('Digite o salário: '));
+//     salario = salario *1.15;
+//     console.log(salario);
+// }
+// aumentarSalario();
+
+// function zeroACem() {
+//     for(let i = 0; i <= 100; i++){
+//         console.log(i)
+//     }
+// }
+// zeroACem();
