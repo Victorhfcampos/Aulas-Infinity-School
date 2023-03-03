@@ -1,0 +1,189 @@
+https://www.invertexto.com/619aula34
+
+
+https://docs.google.com/presentation/d/1g5QzWHMDujIl0FBBdRBP3tO0q7dJy4UYSjD5ETy3jWE/edit#slide=id.g1afa6957de6_0_16
+
+
+---------------------------------------------------------------------------
+
+// Crie uma função para um jogo de pedra, papel e tesoura. Onde cada jogador
+// escolhe uma jogada e em seguida você irá informar quem venceu ou se deu empate   
+
+// Crie uma função para um jogo de pedra, papel e tesoura. Onde cada jogador
+// escolhe uma jogada e em seguida você irá informar quem venceu ou se deu empate   
+
+function jokenpo() {
+    let player1 = prompt('Digite a jogada: ');
+    let player2 = prompt('Digite a jogada: ');
+
+    if (player1 == player2) {
+        alert('Empate!');
+    }
+    else if (player1 == 'Pedra' && player2 == 'Tesoura' || player1 == 'Tesoura' && player2 == 'Papel' || player1 == 'Papel' && player2 == 'Pedra') {
+        alert('Player1 ganhou!');
+    }
+    else if (player2 == 'Pedra' && player1 == 'Tesoura' || player2 == 'Tesoura' && player1 == 'Papel' || player2 == 'Papel' && player1 == 'Pedra') {
+        alert('Player2 ganhou!');
+    }
+    else {
+        alert('Jogada inválida!');
+    }
+}
+
+
+
+// 2. Escreva uma função que lê dois números x e y. E informe a soma de todos os números que não são multiplos de 13 entre x e y.
+// ex x = 100 e y = 200 resultado 13964 
+
+-------------------------------------------------------------------------
+
+// 2. Escreva uma função que lê dois números x e y. E informe a soma de todos os números que não são multiplos de 13 entre x e y.
+// ex x = 100 e y = 200 resultado 13964 
+
+function gerarResultado() {
+    let x = Number(prompt('Digite o valor de x: '));
+    let y = Number(prompt('Digite o valor de y: '));
+    let soma = 0;
+
+//     for (let i = x; i <= y; i++) {
+//         if (i % 13 != 0) {
+//             soma += i
+//         }
+//     }
+
+    while (x <= y) {
+        if (x % 13 != 0) {
+            soma = soma + x;
+        }
+        x++;
+    }
+    alert(`Resultado = ${soma}`);
+}
+
+
+========================================================================
+
+// Parametros são valores que são passados fora da função
+function areaTriangulo(base, altura) { // base = 10, altura = 5
+    let area = base * altura / 2;
+    alert(`Área = ${area}`);
+}
+
+// Chamando uma função que recebe parametros
+areaTriangulo(10, 5);
+
+-----------------------------------------------------------
+
+// 1. Crie uma função que recebe dois parametros (x e y) e de acordo com os seus valores informe em qual quadrante essas coordenadas se encontram
+// x = 10 e y = 10 -> primeiro quadrante 
+
+function quadrantes(x, y) {
+    if (x > 0 && y > 0) {
+        alert('Primeiro quadrante!')
+    }
+    else if (x < 0 && y > 0) {
+        alert('Segundo quadrante!');
+    }
+    else if (x < 0 && y < 0) {
+        alert('Terceiro quadrante');
+    }
+    else if (x > 0 && y < 0) {
+        alert('Quarto quadrante!');
+    }
+    else {
+        alert('Nulo!');
+    }
+}
+quadrantes(1, 1);
+quadrantes(-1, 1);
+quadrantes(-1, -1);
+quadrantes(1, -1);
+quadrantes(0, 0);
+
+---------------------------------------------------------------------
+
+// Funções com retorno
+// Funções que devolvem um valor a quem chamou a função
+
+// function areaQuadrado(lado) {
+//     let area = lado ** 2;
+//     return area; 
+// }
+
+// // let nome = prompt('Digite o nome: ');
+// let resultado = areaQuadrado(5);
+// alert(resultado);
+// alert(areaQuadrado(5));
+
+function autenticar(login, senha) {
+    if (login == 'infinity' && senha == '123') {
+        return true;
+    }
+    else {
+        return false;
+    } 
+}
+
+function depositar(login, senha, valor, contaDestino) {
+    if (autenticar(login, senha)) {
+        alert('Dinheiro transferido!');
+    }
+    else {
+        alert('Não foi possível fazer transferencia!')
+    }
+}
+--------------------------------------------------------------------------------------------
+// 1. Escreva uma função que recebe base e altura por parametro e retorne a área do triângulo
+// area do triangulo = base * altura / 2 
+
+function areaTriangulo(base, altura) {
+    return base * altura / 2;
+}
+
+let resultado = areaTriangulo(10, 5);
+alert(resultado);
+
+// 2. Escreva uma função que recebe peso e altura por parametro e retorne o IMC do usuário
+// IMC = peso / altura ** 2
+
+function calcularImc(peso, altura) {
+    let imc = peso / altura ** 2;
+    return imc
+}
+
+let imc = calcularImc(79, 1.81);
+alert(imc.toFixed(1));
+---------------------------------------------------------------------------------------
+
+// Função recursiva
+// É uma função que chama a si mesmo
+// Usa-se para quebrar o problema em problemas menores 
+// Caso base ou ponto de parada para evitar o loop infinito
+
+function calcularFatorial(numero) {
+    let resultado = 1;
+    for (let i = 1; i <= numero; i++) {
+        resultado = resultado * i;
+        // resultado *= i
+    }
+
+    return resultado;
+}
+
+alert(calcularFatorial(5));
+
+function fatorial(numero) {
+    // criando o caso base
+    if (numero == 1) {
+        return 1
+    }
+    else {
+        return numero * fatorial(numero - 1);
+    }
+}
+
+// 5! = 5 * 4! = 5 * 24 = 120
+// 4! = 4 * 3! = 4 * 6 = 24 
+// 3! = 3 * 2! = 3 * 2 = 6
+// 2! = 2 * 1! = 2 * 1 = 2
+// 1! = 1
