@@ -68,3 +68,131 @@
 //     }
 // }
 // zeroACem();
+
+-------------------------------------------------------------------------------
+// function escrevendoConsole(){
+//     console.log('escrevendo no console')
+// }
+
+// escrevendoConsole()
+// escrevendoConsole()
+// escrevendoConsole()
+// escrevendoConsole()
+// escrevendoConsole()
+
+function soma(valor1, valor2){
+    console.log(valor1 + valor2)
+}
+
+soma(2,2)
+soma(8,5)
+soma(2,2)
+
+----------------------------------------------------------------------------
+
+function somaNumeros(valor1, valor2) { 
+    let resultado = valor1 + valor2;
+    alert(resultado);
+}
+
+somaNumeros(10, 5);
+somaNumeros(5, 10);
+
+========-----------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="somarNumeros()">Somar Números</button>
+    <script src="script.js"></script>
+</body>
+</html>
+
+------------------------------------------------------------
+
+function somarNumeros() {
+    let num1 = Number(prompt('Primeiro valor: '))    let num2 = Number(prompt('Segundo valor: '));
+    alert(num1 + num2);
+}
+
+----------------------------------------------------------
+
+//Escreva uma função que recebe um lado como parâmetro, calcule a área desse quadrado e exiba no console. function
+
+function areaQuadrado(lado) {
+    let area = lado ** 2;
+    alert(`ÁREA = ${area}`);
+}
+
+areaQuadrado(5);
+
+-------------------------------------------------------
+
+function areaTriangulo(base, altura) {
+    let area = base * altura / 2;
+    alert(`AREA = ${area}`);
+}
+
+areaTriangulo(5, 10);
+
+----------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>
+        Base: <input type="text" id="base">
+    </label>
+
+    <label>
+        Altura: <input type="text" id="altura">
+    </label>
+    <button onclick="calcularArea()">Calcular Área</button>
+    <h2></h2>
+    <script src="script.js"></script>
+</body>
+</html>
+
+-------------------------------------------------------
+
+function calcularArea() {
+    // pegando o elemento para manipula-lo
+    let base = document.getElementById('base');
+    let altura = document.getElementById('altura');
+    // acessando o valor dentro do input que pegamos
+    let area = Number(base.value) * Number(altura.value) / 2;
+    //pegando o <h2> para manipula-lo
+    let h2 = document.querySelector('h2');
+    // alterando o estilo de um alemento
+    h2.style.color = 'crimson';
+    // alterando o conteúdo do <h2>
+    h2.innerText = `ÁREA = ${area}`;
+
+}
+
+//arrow function --- funcao anonima --- funcao lambda 
+const funcao = (nome) => {
+    alert(nome);
+
+}
+
+const funcao2 = function (nome) {
+    alert(nome);
+}
+
+const funcao3 = nome => alert(nome);
+
+
+let nome = prompt('Digite o nome: ')
