@@ -1,0 +1,179 @@
+// arrow => 
+// function (<args>) {
+//    codigo
+//}
+
+/*
+(<args>) => {
+    codigo
+}
+
+<args> => codigo
+
+*/
+
+/*
+function somar() {
+    codigo
+}
+
+somar()
+*/
+
+// const somar = function (valor1, valor2) {
+//     let resultado = valor1 + valor2;
+
+//     return resultado;
+// };
+
+// console.log(somar(5, 10));
+
+
+// const dividir = (valor1, valor2) => {
+//     let resultado;
+//     if (valor2 != 0) {
+//         resultado = valor1 / valor2;
+//     }
+//     return resultado;
+// };
+
+// console.log(dividir(10, 2));
+
+// const multiplicar = num1 => num1 * 2;
+// console.log(multiplicar(5));
+
+
+// 1. Crie uma arrow function que recebe 1 argumento e informa se ele é positivo ou negativo
+// 2. Crie uma arrow function que recebe o raio de um circulo como argumento e retorna a área
+// area = 3.14 * raio ** 2
+
+// const posNeg = function (valor) {
+//     if (valor > 0) {
+//         return "positivo";
+//     }
+//     else {
+//         return "negativo";
+//     }
+// };
+
+// console.log(posNeg(5));
+
+// const areaCirculo = function (raio) {
+//     return 3.14 * raio ** 2;
+// };
+
+// console.log(areaCirculo(5));
+
+// Como criar um array?
+//                  0       1           2       3          4
+let carrinho = ['Mouse', 'Teclado', 'Monitor', 'SSD', 'Mousepad'];
+console.log(carrinho);
+
+// Arrays são indexados
+console.log(carrinho[2]);
+
+// Como alterar um item em um array?
+carrinho[2] = 'Monitor 144hz';
+console.log(carrinho);
+
+// 1. Crie um array com o seu nome, sua idade, sua linguagem preferida.
+// 2. Em seguida exiba o array.
+// 3. Em seguida exiba apenas o seu nome.
+
+// let dadosPessoais = ['Victor', '27', 'HTML'];
+// console.log(dadosPessoais);
+// console.log(dadosPessoais[0]);
+
+// Como saber o tamanho de um array?
+// let carrinho = ['Mouse', 'Teclado', 'Monitor', 'SSD', 'Mousepad'];
+// console.log(carrinho.length); // 5
+// let notas = [5.9, 7.1, 8.2, 8.3];
+
+// let media = (notas[0] + notas[1] + notas[2] + notas[3]) / notas.length;
+// console.log(`Média = ${media}`);
+
+let carrinho = ['Mouse', 'Teclado', 'Monitor', 'SSD', 'Mousepad'];
+/* Percorrendo um array */
+for (let indice = 0; indice < carrinho.length; indice++) {
+    if (carrinho[indice] == 'Teclado') {
+        console.log('Produto não disponível');
+    }
+    else {
+        console.log(carrinho[indice]);
+    }
+}
+
+// Considere o seguinte array [10, 15, 17, 22, 9, 4].
+// Escreva um algoritmo que percorra o array e conte a quantidade de números pares nela. (você precisará usar contadores).
+// Ao final exiba essa quantidade.
+
+// let num = [10, 15, 17, 22, 9, 4]; { 
+
+// }
+// const par = x => x % 2 === 0
+// const numeros = [10, 15, 17, 22, 9, 4]
+// let pares = []
+
+// for (i = 0; i < numeros.length; i++) {
+//   if (par(numeros[i])) {
+//     pares.push(numeros[i])
+//   }
+// }
+// console.log(pares)
+
+let array = [10, 15, 17, 22, 9, 4]
+let contador = 0;
+for (let i = 0; i < array.length; i++) {
+  if (array[i] % 2 == 0) {
+    contador++;
+  }
+}
+console.log(contador);
+
+let carrinho = ['Mouse', 'Teclado', 'Monitor', 'SSD', 'Mousepad'];
+console.log(carrinho);
+
+// Como apagar o ultimo item?
+// função => array.pop();
+carrinho.pop();
+console.log(carrinho);
+
+// Como adicionar ultima posição:
+// função => array.push(<item>);
+carrinho.push('Placa de vídeo');
+console.log(carrinho);
+
+// Como remover da primeira posição:
+// função => array.shift();
+carrinho.shift();
+console.log(carrinho);
+
+// Como adicionar na primeira posição?
+// função => array.unshift(<item>);
+let item = prompt('Digite o produto: ');
+carrinho.unshift(item);
+console.log(carrinho);
+
+// Como deletar em qualquer posição?
+// função => splide(indice, 1)
+carrinho.splice(2, 1);
+console.log(carrinho);
+
+// Como adicionar em qualquer posição:
+// função => splice(indice, 0, <item>)
+carrinho.splice(2, 0, 'Gabinete');
+console.log(carrinho);
+
+let pares = [];
+let impares = []
+
+1. Leia 10 números. caso o número seja par, adicione-o no array de pares.
+Caso seja impar, adicione-o no array de ímpares. Ao final exiba os dois arrays
+
+
+let impares = []
+let multiCinco = []
+let multiTresCinco = []
+
+2. Leia 10 números. Caso o número seja impar, adicione-o na lista de impares, se for multiplo de 5, adicione-o na lista multiCinco.
+E caso seja multiplo de 3 e de 5 adicione-o na lista multiTresCinco.
