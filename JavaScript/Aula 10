@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árvore DOM</title>
+</head>
+<body>
+    <div>
+        <h1>Conhecendo o DOM</h1>
+        <p>Aula de javascript</p>
+    </div>
+
+    <div>
+        <h2>Exemplo de lista</h2>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+----------------------------------
+
+// Conhecendo a árvore do DOM
+console.log(document);
+console.log(document.body);
+
+// Acessando os nós filhos do elemento body
+// childNode
+console.log(document.body.childNodes);
+
+// Acessando o primeiro filho do body <div>
+console.log(document.body.childNodes[1]);
+
+// Acessando os nós filhos da <div>
+console.log(document.body.childNodes[1].childNodes);
+
+// Acessando o <h1>
+console.log(document.body.childNodes[1].childNodes[1]);
+
+// Acessando o conteudo do <h1>
+console.log(document.body.childNodes[1].childNodes[1].innerText);
+
+// Alterando o texto do <h1> dinamicamente
+console.log(document.body.childNodes[1].childNodes[1].innerText = "<h1> foi alterado");
+
+/*
+Como pegar os elementos de uma página no javascript
+
+- pela tag
+document.getElementsByTagName('nome-da-tag')
+
+- pela class
+document.getElementsByClassName('nome-da-class')
+
+- pelo id
+document.getElementsById('nome-da-id')
+
+- pelo seletor CSS
+*/
+
+const h1 = document.getElementsByTagName('h1');
+
+console.log(h1);
+
+const divContainer = document.getElementsByClassName('container');
+console.log(divContainer[0]);
+
+const header = document.getElementById('header-texto');
+console.log(header);
+
+const h1_2 = document.querySelector('h1');
+console.log(h1_2);
+
+const div2 = document.querySelector('.container');
+console.log(div2);
+
+const header2 = document.querySelector('#header-texto');
+console.log(header2);
+
+/* Como você faria para pegar o elemento <li>item 2</li> e exibi-lo no console 
+*/
+
+// const item2 = document.querySelector('#item-2');
+// console.log(item2);
+
+function html() {
+    // Propriedade innerHTML
+    const h1 = document.querySelector('h1');
+    console.log(h1.innerHTML);
+
+    h1.innerHTML = '<i>Alteramos o <u>h1</u></i>';
+}
+
+function textContent2(){
+    const h1 = document.querySelector('h1');
+    console.log('h1.textContent');
+
+    h1.textContent = '<i>Alteramos o <u>h1</u></i>';
+
+}
+
+function innerText2(){
+    const h1 = document.querySelector('h1');
+    console.log(h1.innerText);
+}
