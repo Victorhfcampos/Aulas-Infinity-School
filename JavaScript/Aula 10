@@ -102,10 +102,68 @@ function textContent2(){
     console.log('h1.textContent');
 
     h1.textContent = '<i>Alteramos o <u>h1</u></i>';
-
 }
 
 function innerText2(){
     const h1 = document.querySelector('h1');
     console.log(h1.innerText);
 }
+
+function enviar() {
+    // Pegando os elementos que iremos usar 
+    const input = document.querySelector('input');
+    // const h2 = document.querySelector('h2');
+
+    // Como pegar o texto digitado em um input
+    // propriedade : value 
+
+    // h2.innerText = `Bem vindo, ${input.value}`;
+
+    // Como criar elementos
+    // função document.createElement('nome-do-elemento')
+    const li = document.createElement('li');
+
+    // Adicionando conteúdo ao <li>
+    li.innerText = input.value;
+    
+    // Pegando o elemento pai
+    const ul = document.querySelector('ul');
+
+    // Como adicionar Elementos
+    ul.appendChild(li);
+}
+----------------------------------------------------------
+
+Faça uma calculadora simples 
+Crie três inputs
+2 inputs para os valores
+1 input para a operação
+1 botão para calcular
+
+----------------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árvore DOM</title>
+</head>
+<body>
+    <label for="">Valor 1:</label>
+    <input type="text" id="valor1">
+
+    <label for="">Valor 2:</label>
+    <input type="text" id="valor2">
+
+    <label for="">Operação: </label>
+    <input type="text" id="operacao">
+
+    <button onclick="calcular()">Calcular</button>
+
+    <h2></h2>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
