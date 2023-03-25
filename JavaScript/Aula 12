@@ -1,0 +1,210 @@
+HTML
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- <button>Clique aqui</button> -->
+    <!-- Como fazer uma calculadora simples em javascript apenas com evento de clique -->
+    <div class="calculadora">
+        <input type="text" id="resultado" readonly>
+        <br>
+        <button id="limpar">C</button>
+        <button id="dividir" class="operador">/</button>
+        <br>
+
+        <button id="sete">7</button>
+        <button id="oito">8</button>
+        <button id="nove">9</button>
+        <button id="multiplicar" class="operador">*</button>
+        <br>
+
+        <button id="quatro">4</button>
+        <button id="cinco">5</button>
+        <button id="seis">6</button>
+        <button id="subtrair" class="operador">-</button>
+        <br>
+
+        <button id="um">1</button>
+        <button id="dois">2</button>
+        <button id="tres">3</button>
+        <button id="somar" class="operador">+</button>
+        <br>
+
+        <button id="zero">0</button>
+        <button id="decimal">.</button>
+        <button id="igual">=</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+-------------------------------------
+
+CSS
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.calculadora {
+    height: 500px;
+    width: 500px;
+    background-color: #eee;
+    padding-top: 50px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#resultado {
+    width: 80%;
+    height: 50px;
+    padding: 20px;
+    text-align: right;
+    font-size: 24px;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+button {
+    height: 50px;
+    width: 20%;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    font-family: Helvetica;
+    transition: .4s;
+}
+
+.operador {
+    background-color: crimson;
+    color: white;
+}
+
+button:hover {
+    background-color: #000;
+    color: white;
+}
+
+#limpar {
+    width: 60%;
+}
+
+#igual {
+    width: 40%;
+}
+
+----------------------------------------------
+
+// let btn = document.querySelector('button');
+
+// btn.addEventListener('click', () => {
+//     alert('Você clicou no botão!');
+// })
+
+// Pegando os elementos que serão manipulados
+let resultado = document.querySelector('#resultado');
+
+// Pegando todos os botões numéricos
+let zero = document.querySelector('#zero');
+let um = document.querySelector('#um');
+let dois = document.querySelector('#dois');
+let tres = document.querySelector('#tres');
+let quatro = document.querySelector('#quatro');
+let cinco = document.querySelector('#cinco');
+let seis = document.querySelector('#seis');
+let sete = document.querySelector('#sete');
+let oito = document.querySelector('#oito');
+let nove = document.querySelector('#nove');
+
+// Pegando os operadores
+let somar = document.querySelector('#somar');
+let subtrair = document.querySelector('#subtrair');
+let dividir = document.querySelector('#dividir');
+let multiplicar = document.querySelector('#multiplicar');
+
+// Pegando os botões limpar e igual
+let limpar = document.querySelector('#limpar');
+let igual = document.querySelector('#igual');
+let decimal = document.querySelector('#decimal');
+
+
+zero.addEventListener('click', () => {
+    resultado.value = resultado.value + "0";
+})
+
+um.addEventListener('click', () => {
+    resultado.value = resultado.value + "1";
+})
+
+dois.addEventListener('click', () => {
+    resultado.value = resultado.value + "2";
+})
+
+tres.addEventListener('click', () => {
+    resultado.value = resultado.value + "3";
+})
+
+quatro.addEventListener('click', () => {
+    resultado.value = resultado.value + "4";
+})
+
+cinco.addEventListener('click', () => {
+    resultado.value = resultado.value + "5";
+})
+
+seis.addEventListener('click', () => {
+    resultado.value = resultado.value + "6";
+})
+
+sete.addEventListener('click', () => {
+    resultado.value = resultado.value + "7";
+})
+
+oito.addEventListener('click', () => {
+    resultado.value = resultado.value + "8";
+})
+
+nove.addEventListener('click', () => {
+    resultado.value = resultado.value + "9";
+})
+
+somar.addEventListener('click', () => {
+    resultado.value = resultado.value + "+";
+})
+
+subtrair.addEventListener('click', () => {
+    resultado.value = resultado.value + "-";
+})
+
+dividir.addEventListener('click', () => {
+    resultado.value = resultado.value + "/";
+})
+
+multiplicar.addEventListener('click', () => {
+    resultado.value = resultado.value + "*";
+})
+
+decimal.addEventListener('click', () => {
+    resultado.value = resultado.value + ".";
+})
+
+limpar.addEventListener('click', () => {
+    resultado.value = '';
+})
+
+igual.addEventListener('click', () => {
+    resultado.value = eval(resultado.value);
+})
