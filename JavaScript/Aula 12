@@ -45,7 +45,7 @@ HTML
 </body>
 </html>
 
--------------------------------------
+-------------------------------------------------------------------------
 
 CSS
 
@@ -106,7 +106,7 @@ button:hover {
     width: 40%;
 }
 
-----------------------------------------------
+-------------------------------------------------------------------------
 
 // let btn = document.querySelector('button');
 
@@ -208,3 +208,71 @@ limpar.addEventListener('click', () => {
 igual.addEventListener('click', () => {
     resultado.value = eval(resultado.value);
 })
+
+-------------------------------------------------------------------------
+
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <p>
+        <button>Clique aqui</button>
+    </p>
+    <script src="script.js"></script>
+</body>
+</html>
+
+-------------------------------------------------------------------------
+Javascript
+// let btn = document.querySelector('button');
+
+// function clicou() {
+//     console.log('Você clicou no botão');
+// }
+
+// btn.addEventListener('click', clicou);
+
+// aplicando delay
+// setTimeout(() => {
+//     btn.removeEventListener('click', clicou);
+//     console.log('Evento removido');
+// }, 5000);
+
+let btn = document.querySelector('button');
+let p = document.querySelector('p');
+
+btn.addEventListener('click', (event) => {
+    // Como parar uma propagação
+    event.stopPropagation();
+    console.log('Você clicou no botão!');
+});
+
+p.addEventListener('click', () => {
+    console.log('Você clicou no paragrafo!');
+});
+
+-------------------------------------------------------------------------
+
+// Como prevenir ações default 
+
+a.addEventListener('click', (event) =>{
+    event.preventDefault();
+    alert('Você clicou no link');
+    window.location = "https://www.infinityschool.eadplataforma.com"
+});
+
+-------------------------------------------------------------------------
+
+// Evento mouseover
+btn.addEventListener('mouseover', () => {
+    console.log('Você passou o mouse sobre o botão');
+})
+
+-----------------------------------------------------------------------------
