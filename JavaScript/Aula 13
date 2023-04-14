@@ -1,0 +1,156 @@
+https://www.invertexto.com/619aula38
+
+https://docs.google.com/presentation/d/1wXPMXIhw0GOmmD3TjWim4lusDn2ERlaXw9Dy7TeYcPo/edit#slide=id.p1
+
+// let pessoa = ['carlos', 31, 'programador']
+
+// Como criar um objeto 
+let pessoa = {
+    // Caracteristicas/atributos
+    nome: 'Carlos',
+    idade: 31,
+    profissao: "Programador",
+
+    // ações/métodos/funções
+    dizerOla: function () {
+        console.log("Olá, seja bem vindo!");
+    }
+};
+
+// Verificando o tipo
+console.log(typeof pessoa);
+// Imprimindo o objeto pessoa 
+console.log(pessoa);
+
+// Como acessar as propriedades e funções de um objeto
+console.log(pessoa.nome);
+// Outra forma, que lembra um pouco os arrays 
+console.log(pessoa["profissao"]);
+// Chamando uma função de um objeto
+pessoa.dizerOla();
+
+// Como alterar o valor de uma propriedade
+pessoa.nome = "Carlos Sousa";
+console.log(pessoa.nome);
+
+// Criando uma nova propriedade para o objeto
+pessoa.aposentado = false;
+// pessoa["aposentado"] = false
+console.log(pessoa);
+
+
+// Deletando uma propriedade
+delete pessoa.aposentado;
+console.log(pessoa);
+
+// Como verificar quais chaves do objeto
+// Object.keys(objeto);
+// retorna uma lista 
+console.log(Object.keys(pessoa)); // [nome, idade, profissao, dizerOla]
+
+// Como verificar quais valores existem no objeto
+// Object.values(objeto)
+// retorna uma lista
+console.log(Object.values(pessoa));
+
+// Destructuring em objetos
+let {nome: n, idade: i, profissao: p} = pessoa;
+console.log(n);
+console.log(i);
+console.log(p);
+
+let lista = ['carro', 'moto', 'bicicleta'];
+let [auto, moto, bike] = lista;
+---------------------------------------------------------------
+
+let calculadora = {
+    somar: function(a, b) {
+        console.log(a + b);
+    },
+    subtrair: function(a, b) {
+        console.log(a - b);
+    },
+    dividir: function(a, b) {
+        console.log(a / b);
+    },
+    multiplicar: (a, b) => {
+        console.log(a * b);
+    } 
+
+}
+calculadora.somar(5, 6);
+calculadora.subtrair(5, 6);
+calculadora.dividir(5, 6);
+calculadora.multiplicar(5, 6);
+
+------------------------------------------------------------
+let pessoa = {
+    "nome": "Carlos",
+    "idade": 19,
+    "profissao": "Programador"
+};
+
+// Convertendo string para json
+let jsonString = JSON.stringify(pessoa);
+
+console.log(typeof jsonString);
+
+// Convertendo string para json
+let stringJson = JSON.parse(jsonString);
+console.log(typeof stringJson);
+
+------------------------------------------------------
+
+// Lendo os dados de um arquivo json
+let resposta = fetch("dados.json");
+console.log(resposta); // status = 200 se tiver ok
+
+// Tratando a requisição
+resposta.then((dados) => {
+    console.log(dados.json());
+})
+
+-------------------------------------------
+
+let carro = {
+    "Motor": "1.0",
+    "Cambio": "6 marchas",
+    "Combustao": "alcool/gasolina"
+};
+
+console.log(carro.Motor);
+console.log(carro.Cambio);
+console.log(carro.Combustao);
+
+---------------------------------------------
+
+let alunos = [
+    {
+        matricula: 1,
+        nome: "Luan Ferreira",
+        curso: "Informática",
+        nota: 9.5
+    },
+    {
+        matricula: 2,
+        nome: "Marina Gomes",
+        curso: "Design",
+        nota: 8.9
+    },
+    {
+        matricula: 3,
+        nome: "Leticia Freitas",
+        curso: "Informática",
+        nota: 6.7
+    }
+]
+
+// Percorra a lista e imprima os dados dos 3 alunos. 
+for (let i = 0; i < alunos.length; i++) {
+    console.log(alunos[i].matricula);
+    console.log(alunos[i].nome);
+    console.log(alunos[i].curso);
+    console.log(alunos[i].nota);
+}
+
+-------------------------------------------------------
