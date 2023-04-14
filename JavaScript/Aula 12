@@ -278,3 +278,35 @@ btn.addEventListener('mouseover', () => {
 })
 
 -----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
+// Adicionando evento de tecla
+document.body.addEventListener('keydown', (evento) => {
+    console.log(`Você pressionou a tecla ... ${evento.key}`);
+
+    if (evento.key == 'Enter') {
+        console.log('Você pressionou a tecla ENTER!');
+    }
+})
+
+---------------------------------------------------------------------------
+
+let btn = document.querySelector('button');
+// let p = document.querySelector('p');
+let a = document.querySelector('a');
+let input = document.querySelector("[type='text']");
+
+// Como adicionar o evento de foco
+input.addEventListener('focus', () => {
+    console.log('Insira apenas caracteres!');
+});
+
+// Como adicionar o evento blur
+input.addEventListener('blur', () => {
+    if (input.value == '') {
+        console.log('Você não preencheu o campo!')
+        input.focus();
+    }
+    
+})
+----------------------------------------------------------
