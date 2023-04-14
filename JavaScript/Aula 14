@@ -1,0 +1,83 @@
+https://www.invertexto.com/619aula39
+
+https://docs.google.com/presentation/d/1dwpV3DfzgODlsZsm-Ql2D-L84vL_C06Zn_o7tKw3NQQ/edit
+
+// console.log('Esta mensagem vai exibida');
+
+// setTimeout(() => {
+//     console.log('Depois essa mensagem');
+// }, 5000);
+
+// console.log('E depois essa mensagem!');
+
+// Criando uma promessa
+let promessa = Promise.resolve(5 + 5);
+
+console.log(promessa);
+
+// Extraindo os dados da promessa
+promessa.then((resultado) => {
+    console.log("Resultado da promessa = " + resultado);
+})
+
+let promessa = Promise.resolve(new Error("Erro na promessa! :("));
+
+promessa.then((valor) => {
+    console.log("Resultado da promessa = " + valor);
+})
+.catch((erro) => {
+    console.log("Erro na promessa = " + erro);
+});
+
+
+function verificarNum(num) {
+    return new Promise((resolve, reject) => {
+        if (num == 2) {
+            resolve(console.log("Promessa válida"));
+        }
+        else {
+            reject(
+                new Error("Valor inválido!")
+            )
+}
+    })
+}
+
+verificarNum(2);
+verificarNum(3);
+
+// Resolva a seguinte promessa
+// Utilize o then
+let promessa = Promise.resolve(2 ** 2 - 4 * 3 * 1);
+promessa.then((resultado) => {
+    console.log(resultado);
+})
+
+// Como criar funções assíncronas
+async function somar(a, b) {
+    return a + b
+}
+
+let resultado = somar(5, 5);
+
+// Resolva a promessa na variável resultado
+resultado.then((res) => {
+    console.log(res);
+})
+
+console.log(resultado);
+
+async function obterDados() {
+    // Realizando requisição na API jsonplaceholder
+    // A palavra await serve para que o codigo espere
+    // a sua linha terminar de ser resolvida
+    let resposta = await fetch("https://jsonplaceholder.typicode.com/todos/");
+
+    // Convertendo os dados da resposta em um arquivo json()
+    let dados = await resposta.json();
+
+    console.log(dados);
+}
+
+obterDados();
+
