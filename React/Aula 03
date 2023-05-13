@@ -2,3 +2,182 @@ https://www.invertexto.com/619aula42
 
 https://drive.google.com/file/d/1G0PZVsesF--sBClwxDZZJ4kY0JS59v4a/view
 
+index.css:
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.carros-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.carro-card {
+  width: 40%;
+  padding: 10px;
+  border: 1px solid black;
+  margin-top: 16px;
+}
+
+-------------------------------------------
+
+app.jsx:
+import './App.css'
+// Importando o componente
+import ComponenteRevisao from './components/ComponenteRevisao'
+import Clientes from './components/Cliente'
+import Alunos from './components/Alunos'
+
+function App() {
+
+  return (
+    <div>
+      <h1>Terceira aula</h1>
+      <ComponenteRevisao loja="Infinity Autos"
+      endereco = "Av. Santos Dumont, 2626"
+      /> <br />
+      <hr /> <br />
+      <Clientes />
+      <hr /> <br />
+      <Alunos />
+    </div>
+  )
+}
+
+export default App
+
+-------------------------------------------
+
+Cliente.jsx:
+import { useState } from "react";
+
+
+const Clientes = () => {
+    const [cliente, setCliente] = useState("Marcos");
+    
+    const handleClick = () => {
+        alert('Você clicou no botão!');
+        setCliente("Marcos Silva");
+
+    };
+    const handleNome = (e) => {
+        setCliente(e.target.value);
+    }
+
+    return (
+        <div>
+            <h1>Nome do cliente: {cliente}</h1>
+            <form>
+                <label>
+                    Nome: <input type="text" onChange={handleNome}/>
+                </label>
+                <input type="submit" value="Alterar nome"/>
+            </form>
+            <button onClick={handleClick}>Alterar nome</button>
+        </div>
+    )
+}
+
+export default Clientes;
+
+-------------------------------------------
+
+Alunos.jsx:
+import { useState } from "react";
+
+const Alunos = () => {
+    const [nome, setNome] = useState("");
+    const [curso, setCurso] = useState("");
+    const [idade, setIdade] = useState("");
+    let lista = [
+        { nome: "João Silva", idade: 19, curso: "fullstack"}
+    ];
+    const [alunos, setAluno] = useState(lista);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const aluno = {nome, idade, curso};
+        setAluno((alunosAntes) => [...alunosAntes, aluno]);
+       
+        setNome("");
+        setIdade("");
+        setCurso("");
+    }
+
+    return (
+        <div>
+            <hr />
+            <h1>Alunos matriculados</h1>
+            <hr />
+            <ul>
+                {alunos.map((aluno) => 
+                <li>
+                    Nome: {aluno.nome} - Curso: {aluno.curso} - Idade {aluno.idade}
+                </li>
+            )}
+            </ul>
+
+            <br />
+            <h2>Cadastro de alunos</h2>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Nome:
+                    <input type="text" onChange={(e) => setNome(e.target.value)} value={nome}/>
+                </label> <br />
+
+                <label>
+                    Idade:
+                    <input type="text" onChange={(e) => setIdade(e.target.value)} value={idade}/>
+                </label> <br />
+
+                <label>
+                    Curso:
+                    <input type="text" onChange={(e) => setCurso(e.target.value)} value={curso}/>
+                </label> <br />
+                <input type="submit" value="Cadastrar Aluno"/>
+            </form>
+        </div>
+    )
+}
+
+export default Alunos;
+
+-------------------------------------------
+
+ComponenteRevisao.jsx:
+const ComponenteRevisao = ({loja, endereco}) => {
+    const carrosDisponiveis = [
+        {id: 1, modelo: "Gol", preco: 60000},
+        {id: 2, modelo: "Argo", preco: 58000},
+        {id: 3, modelo: "Ethios", preco: 65000}
+    ];
+    return (
+        <div>
+            <h1>Loja: {loja}</h1>
+            <h3>Endereço: {endereco}</h3> <br />
+            <hr />
+            <h2>Carros disponíveis: {carrosDisponiveis.length}</h2>
+            <div className="carros-container">
+                {carrosDisponiveis.map((carro) => 
+                    <div className="carro-card" key={carro.id}>
+                        <p>Modelo: {carro.modelo}</p>
+                        <p>Preço: R$ {carro.preco}</p>
+                    </div>
+                )}
+            </div>
+        </div>
+    )
+}
+
+export default ComponenteRevisao;
