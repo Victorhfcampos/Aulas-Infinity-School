@@ -1,0 +1,207 @@
+https://drive.google.com/file/d/1yi_6Le3R6tq0LiKzM8FMRCRR6s01DfMY/view'
+
+
+https://jsonplaceholder.typicode.com/posts
+-----------------
+
+import { useState } from "react";
+const Revisao = () => {
+    
+    // Criando um useState 
+    const [escola, setEscola] = useState("Infinity");
+
+    return (
+        <div>
+            <h1>{escola}</h1>
+            <button onClick={() => setEscola((prev) => prev + " texto")}>
+                Alterar o nome
+            </button>
+        </div>
+    )
+}
+
+export default Revisao 
+
+-----------------------------------------
+
+import { useState } from "react";
+const Revisao = () => {
+    const [resultado, setResultado] = useState("");
+    return (
+        <div className="calculadora">
+            <h1 className="display">{resultado}</h1>
+            <button className="limpar"
+            onClick={() => setResultado("")}>C</button>
+            <button className="operador" 
+            onClick={() => setResultado((prev) => prev + "/")}>
+                /
+            </button>
+            <br />
+
+            <button onClick={() => setResultado((prev) => prev + "7")}>7</button>
+            <button onClick={() => setResultado((prev) => prev + "8")}>8</button>
+            <button onClick={() => setResultado((prev) => prev + "9")}>9</button>
+            <button className="operador" 
+            onClick={() => setResultado((prev) => prev + "*")}>*</button>
+            <br />
+
+            <button onClick={() => setResultado((prev) => prev + "4")}>4</button>
+            <button onClick={() => setResultado((prev) => prev + "5")}>5</button>
+            <button onClick={() => setResultado((prev) => prev + "6")}>6</button>
+            <button className="operador" 
+            onClick={() => setResultado((prev) => prev + "+")}>+</button>
+            <br />
+
+            <button onClick={() => setResultado((prev) => prev + "1")}>1</button>
+            <button onClick={() => setResultado((prev) => prev + "2")}>2</button>
+            <button onClick={() => setResultado((prev) => prev + "3")}>3</button>
+            <button className="operador" 
+            onClick={() => setResultado((prev) => prev + "-")}>-</button>
+            <br />
+
+            <button onClick={() => setResultado((prev) => prev + ".")}>.</button>
+            <button onClick={() => setResultado((prev) => prev + "0")}>0</button>
+            <button className="igual" 
+            onClick={() => setResultado((prev) => eval(prev))}>
+                =</button>
+
+
+        </div>
+    )
+}
+
+export default Revisao 
+
+-----------------------
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.calculadora {
+    width: 400px;
+    height: 500px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ccc;
+    padding-top: 50px;
+}
+
+.display {
+    width: 80%;
+    height: 50px;
+    font-size: 20px;
+    margin: 0 40px 20px;
+    text-align: right;
+    background-color: #fff;
+    padding-right: 20px;
+    border-radius: 15px;
+    border: 2px solid #000;
+}
+
+.calculadora button {
+    width: 20%;
+    height: 50px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 5px;
+    transition: .4s;
+}
+
+.calculadora button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.calculadora .operador {
+    background-color: crimson;
+    color: #fff;
+}
+
+.calculadora .igual {
+    width: 40%;
+}
+
+.calculadora .limpar {
+    width: 60%;
+}
+
+-------------------------------
+
+import { useEffect, useState } from "react";
+const Aula = () => {
+    const [contador, setContador] = useState(0);
+    const [contador2, setContador2] = useState(0);
+
+    // Sempre executa a função quando há uma renderização
+    useEffect(() => {
+        console.log("Houve uma renderização no componente")
+    })
+
+    // Com array vazio, só executa quando a página carrega
+    useEffect(() => {
+        console.log("Só executa uma vez!");
+    }, []);
+
+    // Com array de dependencias preechido
+    // Só executa quando houver alteração na variavel passada
+    useEffect(() => {
+        console.log("O contador 2 foi alterado")
+    }, [contador2]);
+    return (
+        <div>
+            <h1>Contador = {contador}</h1>
+            <button onClick={() => setContador(contador + 1)}>
+                Clique aqui
+            </button>
+
+            <h1>Contador 2 = {contador2}</h1>
+            <button onClick={() => setContador2(contador2 + 1)}>
+                Contador 2
+            </button>
+        </div>
+    );
+};
+export default Aula;
+
+----------------------------------------
+
+import { useState, useEffect } from 'react';
+
+const ConsumindoApi = () => {
+    // Criando estado para armazenar os posts
+    const [posts, setPosts] = useState([]);
+
+    const getPosts = async () => {
+        const url = 'https://jsonplaceholder.typicode.com/posts';
+        const resposta = await fetch(url);
+        const dados = await resposta.json();
+        setPosts(dados);
+    }
+
+    // chamando a função dentro do useEffect
+    useEffect(() => {
+        getPosts();
+    }, [])
+    return (
+        <div>
+            <h1>Ultimos posts</h1>
+            {posts.map((post) => 
+                <div key={post.id}>
+                    <h2>{post.title}</h2>
+                    <p>{post.body}</p>
+                    <hr />
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default ConsumindoApi;
