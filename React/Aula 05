@@ -1,1 +1,198 @@
+App.jsx
+// Importando os componentes para rotas
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './App.css'
 
+// Importando as páginas
+import Home from './pages/Home';
+import Contato from './pages/Contato';
+import Sobre from './pages/Sobre';
+import Produto from './pages/Produto';
+import Prod from './pages/Prod';
+import NotFound from './pages/NotFound';
+
+// Importando a navbar
+import Navbar from './components/Navbar';
+
+function App() {
+
+  return (
+    <BrowserRouter>
+        <Navbar />
+
+      <Routes>
+        <Route path="/" element ={<Home />} />
+        <Route path="/contato" element = {<Contato />} />
+        <Route path="/sobre" element={<Sobre />} />
+        <Route path="/produto" element={<Produto />} />
+        <Route path="/produto/:id" element={<Prod />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/telefones" element={<Navigate to="/contato" />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;
+
+---------------------
+
+NotFound.jsx
+const NotFound = () => {
+    return (
+        <div>
+            NotFound;
+        </div>
+    )
+}
+
+export default NotFound;
+
+------------------
+
+Contato.jsx
+const Contato = () => {
+    return (
+        <div>
+            Contato;
+        </div>
+    )
+}
+
+export default Contato;
+
+--------------------
+
+index.css
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
+}
+
+body {
+    height: 100vh;
+}
+--------------------
+
+Navbar.jsx
+import "./Navbar.css";
+import { Link } from 'react-router-dom';
+
+const Navbar = () => {
+    return (
+        <nav className="nav-container">
+            <h1>
+                Infinity School
+            </h1>
+
+            <ul>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/contato">Contato</Link>
+                </li>
+                <li>
+                    <Link to="/sobre">Sobre</Link>
+                </li>
+            </ul>
+
+        </nav>
+    )
+}
+export default Navbar;
+--------------------
+
+Navbar.css
+.nav-container {
+    background-color: #191e24f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 10px 10px 10px rgba(128, 128, 128, 0.538);
+    color: #fff;
+}
+
+.nav-container ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+}
+
+li {
+    width: 70px;
+}
+
+li a {
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 20px 15px;
+    transition: .5s;
+}
+
+li a:hover {
+    color: #f1c40f;
+    border-bottom: 4px #f1c40f solid;
+}
+-----------------------
+
+Produto.jsx
+import { Link } from 'react-router-dom'
+const Produto = () => {
+    const produtos = [
+        {id: 1, nome: "Mouse", preco: 157.99},
+        {id: 2, nome: "Teclado", preco: 210.50},
+        {id: 3, nome: "Mousepad", preco: 49.99},
+    ];
+    return (
+        <div className="produtos-container">
+            {produtos.map((produto) =>
+            <div className="produto-card" key={produto.id}>
+                <p>Nome:{produto.nome}</p>
+                <p>Preço: {produto.preco}</p>
+                <Link to={`/produto/${produto.id}`}>Detalhes</Link>
+                <br/>
+            </div>
+        )}
+        
+        </div>
+    )};
+
+export default Produto;
+
+-----------------
+
+Prod.jsx
+import { useParams } from "react-router-dom";
+
+const Prod = () => {
+    const { id } = useParams();
+    
+    const produtos = [
+        { id: 1, nome: "Mouse", preco: 157.99 },
+        { id: 2, nome: "Teclado", preco: 210.50 },
+        { id: 3, nome: "Mousepad", preco: 49.99 },
+    ];
+
+    const produtoSelecionado = produtos.filter((produto) => {
+        if (produto.id == id) {
+            return produto
+        }
+    })
+    return (
+        <div>
+            {/* Você clicou no produto com id = {id} */}
+            <p>Nome: {produtoSelecionado[0].nome}</p>
+            <p>Preço: {produtoSelecionado[0].preco}</p>
+        </div>
+    );
+};
+
+export default Prod;
+
+-------------------
