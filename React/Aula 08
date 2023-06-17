@@ -1,1 +1,289 @@
 https://www.invertexto.com/619aula46
+
+--------------------------
+
+{
+    "posts": [
+        {
+            "titulo": "Titulo do post 1",
+            "corpo": "Conteúdo do post 1"
+        },
+        {
+            "titulo": "Titulo do post 2",
+            "corpo": "Conteúdo do post 2"
+        }
+    ]
+}
+
+----------- App.jsx 
+
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// Pages
+import Home from './pages/Home';
+import Navbar from './components/Navbar';
+function App() {
+
+  return (
+    <div className="app">
+      
+      <div className="container">
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+
+---------------- Home.jsx 
+
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import './Home.css';
+const Home = () => {
+    // Criando state que armazenará os posts da API
+    const [posts, setPosts] = useState([]);
+
+    // Função de busca na API
+    const getPosts = async (url) => {
+        // Realizando requisição na API
+        const response = await fetch(url);
+        // Convertendo os dados da resposta para json
+        const data = await response.json();
+        setPosts(data)
+    }
+
+    // Executando a função getPosts através de useEffect
+    useEffect(() => {
+        const url = "http://localhost:3000/posts"
+        getPosts(url);
+    }, [])
+    return (
+        <div className="home">
+            <h1>Últimos posts</h1>
+            {posts.map((post) => (
+                <div className="post" key={post.id}>
+                    <h2>{post.titulo}</h2>
+                    <p>{post.corpo}</p>
+                    <Link className="btn" to={`/posts/${post.id}`}>
+                        Ler mais
+                    </Link>
+                </div>
+            ))}
+        </div>
+    )
+}
+export default Home;
+// material icon theme 
+
+----------- Navbar.jsx
+
+import { Link } from "react-router-dom";
+import './Navbar.css';
+
+const Navbar = () => {
+    return (
+        <nav className="navbar">
+            <h2>
+                <Link to={`/`}>Infinity Blog</Link>
+            </h2>
+            <ul>
+                <li>
+                    <Link to={`/`}>Home</Link>
+                </li>
+                <li>
+                    <Link to={`/new`} className="new-btn">
+                        Novo Post
+                    </Link>
+                </li>
+                <li>
+                    <Link to={`/admin`}>Gerenciar</Link>
+                </li>
+            </ul>
+        </nav>
+    )
+}
+export default Navbar;
+
+------------ Index.css
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Blinker", sans-serif;
+}
+
+body {
+  background-color: #0e1217;
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+a:hover {
+  opacity: 1;
+}
+
+p {
+  color: #a9abb3;
+}
+
+------------------- App.css 
+
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+------------------ Home.css 
+
+.home h1 {
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #777;
+}
+
+.post h2,
+.post p {
+  margin-bottom: 1rem;
+}
+
+.post h2::first-letter {
+  text-transform: uppercase;
+}
+
+.btn {
+  background-color: #fff;
+  color: #0e1217;
+  border: 1px solid #fff;
+  opacity: 1;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  max-width: 100px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #0e1217;
+}
+
+------------------------------- Navbar.css 
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #17191f;
+}
+
+.navbar h2 a {
+  opacity: 1;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 1rem;
+}
+
+.new-btn {
+  font-weight: bold;
+  border: 1px solid #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  opacity: 1;
+}
+
+-------------------------------NewPost.css
+
+.new-post h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+form {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-control label {
+  margin-bottom: 0.5rem;
+}
+
+.form-control input,
+.form-control textarea {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+}
+
+-------------------------NewPost.jsx
+
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./NewPost.css";
+const NewPost = () => {
+    const navigate = useNavigate();
+    const [titulo, setTitulo] = useState("");
+    const [corpo, setCorpo] = useState("");
+    return (
+        <div className="new-post">
+            <h2>Inserir novo post:</h2>
+            <form>
+                <div className="form-control">
+                    <label>Título: </label>
+                    <input type="text"
+                    placeholder="Digite o título"
+                    onChange={(e) => setTitulo(e.target.value)}
+                    />
+                </div>
+
+                <div className="form-control">
+                    <label>Conteúdo: </label>
+                    <textarea
+                    placeholder="Digite o conteúdo"
+                    onChange={(e) => setCorpo(e.target.value)}
+                    />
+                </div>
+                <input type="submit" value="Criar post" className="btn"/>
+            </form>
+        </div>
+    )
+}
+
+export default NewPost;
